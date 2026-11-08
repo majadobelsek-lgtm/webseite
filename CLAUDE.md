@@ -39,7 +39,7 @@ impressum.html, datenschutz.html   Rechtliches (Deutsch)
 articles/index.html         Artikelübersicht
 articles/<slug>.html        Einzelne Artikel
 css/site.css                Gemeinsame Basis-Styles (Body, Fokus, Mobile-Hero)
-css/fonts.css, fonts/       Selbst gehostete Schrift Plus Jakarta Sans (DSGVO: kein Google-Fonts-Abruf)
+css/fonts.css, fonts/       Selbst gehostete Schriften (DSGVO: kein Google-Fonts-Abruf)
 images/                     Bilder (hero.jpg, portrait.jpg, articles/<slug>.jpg)
 favicon.svg
 ```
@@ -60,9 +60,9 @@ Farben:
 - Paper `#F7F7F4` – Seitenhintergrund · White `#FFFFFF` – Karten, alternierende Abschnitte
 - Slate `#4D5966` – Sekundärtext · Line `#DCE1DE` – Rahmen, Trennlinien · Fliesstext `#2F3B48`
 
-Schrift: durchgehend Plus Jakarta Sans 400–700 (seit 8.11.2026, ersetzt Libre Baskerville/DM Sans aus dem Design).
-Überschriften h1–h3: font-weight 600, letter-spacing -0.03em.
-Eyebrow: 11 px, 700, uppercase, letter-spacing 0.2em, Copper.
+Schriften: Überschriften Libre Baskerville 400/500 (negatives letter-spacing), Text DM Sans 400–700.
+(Am 8.11.2026 Alternativen getestet, u. a. Plus Jakarta Sans; Maja hat sich bewusst für diese Originalschriften entschieden.)
+Eyebrow: DM Sans 11 px, 700, uppercase, letter-spacing 0.2em, Copper.
 Buttons: Höhe 50 px, Radius 6 px, ein Primär-Button pro Abschnitt. Karten: Radius 8 px, 1 px Rahmen, keine Schatten.
 Inhaltsbreite 1200 px, Artikeltext 680 px.
 
