@@ -123,3 +123,17 @@ Keine Fotos anderer Personen ohne Majas ausdrückliche Bestätigung, dass sie di
 
 Browser und GitHub speichern Bilder zwischen. Wird ein Bild unter demselben Dateinamen ersetzt, an allen
 Verweisen die Versionsnummer erhöhen (`images/hero.jpg?v=2` → `?v=3`), sonst sehen Besucher:innen das alte Bild.
+
+## Lebenslauf (CV)
+
+- Quelle: `cv/cv.html` (Englisch, A4). Daraus wird `cv/Maja-Dobelsek-CV.pdf` erzeugt (Download-Button auf `about.html`).
+- Nach jeder Änderung PDF neu erzeugen: Playwright/Chrome `page.pdf(format="A4", prefer_css_page_size=True, print_background=True)`
+  von `file:///…/cv/cv.html`. Ziel: 2 Seiten.
+- Der CV ist öffentlich: keine Telefonnummer, keine Wohnadresse, keine Referenzpersonen.
+- About-Seite und CV inhaltlich synchron halten.
+
+## Zweisprachigkeit (geplant, noch nicht umgesetzt)
+
+Deutsche Seiten in eigenem Ordner `de/` mit gleicher Struktur, EN/DE-Umschalter verlinkt die Gegenstücke,
+`hreflang`-Tags. Schweizer Rechtschreibung (ss), Sie-Form. Artikel nur auf Wunsch übersetzen.
+Erst umsetzen, wenn die englischen Inhalte fertig sind und Maja über Seitenauswahl und Hauptsprache entschieden hat.
