@@ -111,7 +111,8 @@ Keine Fotos anderer Personen ohne Majas ausdrückliche Bestätigung, dass sie di
 - [ ] Formulare (Kontakt, Kurs-Interesse) mit einem Formulardienst verbinden (z. B. Formspree); bis dahin funktionieren
       sie nicht. Datenschutzerklärung entsprechend ergänzen.
 - Newsletter-Band am 8.11.2026 entfernt (kein Newsletter geplant). Der alte Block steht im Git-Verlauf, falls er zurückkommen soll.
-- [ ] Impressum und Datenschutz: Adresse, E-Mail, Stand; von Maja prüfen lassen
+- [x] Impressum: Mindmorph GmbH, Grueben 592, 9243 Jonschwil, UID CHE-144.385.556 (Handelsregister, Stand Mai 2026); E-Mail privat (Gmail)
+- [ ] Datenschutz: Abschnitt Formulardienst ergänzen, sobald angebunden
 - [ ] Deutsche Version. Der EN/DE-Umschalter ist im Header auskommentiert (`<!-- LANGUAGE SWITCH ... -->`); bei Einführung wieder einblenden.
 - [ ] `<meta name="robots" content="noindex">` auf allen Seiten entfernen, sobald die Seite fertig ist
 - [ ] Eigene Domain: Datei `CNAME` mit `majadobelsek.com`, DNS beim Domain-Anbieter, in GitHub Pages „Enforce HTTPS"
