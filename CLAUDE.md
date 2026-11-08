@@ -102,7 +102,7 @@ Keine Fotos anderer Personen ohne Majas ausdrückliche Bestätigung, dass sie di
 
 ## Offene Punkte vor dem Launch auf der eigenen Domain
 
-- [ ] Echte Fotos: `images/hero.jpg` (Terrasse, Querformat) und `images/portrait.jpg` – aktuell Platzhalterflächen
+- [x] Echte Fotos: `images/hero.jpg` (Terrasse, Querformat) und `images/portrait.jpg` – eingefügt am 8.11.2026
 - [ ] Platzhalter in eckigen Klammern füllen: `grep -rn "\[" --include=*.html .` (Jahre, Datum, Kurs-Sessions, Preis, Sprache, Vorträge, Artikeltext)
 - [ ] Links: LinkedIn-Profil-URL, ORCID, Google Scholar, CV-PDF (`#cv-pdf`), Speaker-Kit-Download
 - [ ] Formulare (Kontakt, Newsletter, Kurs-Interesse) mit einem Formulardienst verbinden (z. B. Formspree,

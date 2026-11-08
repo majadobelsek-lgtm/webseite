@@ -13,7 +13,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* Home hero: photo layout on small screens */
 @media (max-width: 760px) {
-  .hv-hero { min-height: 780px !important; align-items: flex-end !important; }
+  .hv-hero { min-height: 860px !important; align-items: flex-end !important; }
   .hv-scrim { background: linear-gradient(0deg, rgba(18,46,44,0.97) 0%, rgba(18,46,44,0.9) 46%, rgba(18,46,44,0.25) 64%, rgba(18,46,44,0) 76%) !important; }
   .hv-photo { object-position: 68% 15% !important; }
 }
