@@ -32,7 +32,7 @@ index.html                  Startseite
 research.html               Studie S012026
 about.html                  Über mich, Lebenslauf
 speaking.html               Vorträge & Zusammenarbeit
-courses.html                Swiss Psychiatry Entry Roadmap
+courses.html                Swiss Psychiatry Entry Roadmap (vorerst VERSTECKT: alle Links auskommentiert mit `<!-- COURSES HIDDEN ... -->`)
 contact.html                Kontakt
 impressum.html, datenschutz.html   Rechtliches (Deutsch)
 404.html                    Fehlerseite (nutzt absolute Links "/", weil sie unter jeder URL erscheint)
@@ -113,6 +113,7 @@ Keine Fotos anderer Personen ohne Majas ausdrückliche Bestätigung, dass sie di
 - Newsletter-Band am 8.11.2026 entfernt (kein Newsletter geplant). Der alte Block steht im Git-Verlauf, falls er zurückkommen soll.
 - [x] Impressum: Mindmorph GmbH, Grueben 592, 9243 Jonschwil, UID CHE-144.385.556 (Handelsregister, Stand Mai 2026); E-Mail privat (Gmail)
 - [ ] Datenschutz: Abschnitt Formulardienst ergänzen, sobald angebunden
+- Kursseite seit 8.11.2026 versteckt (Navigation, Footer, Startseiten-Band, Kontaktseite auskommentiert, Marker `COURSES HIDDEN`). Maja macht sie später fertig; Plan: Schaufenster hier, Kauf/Kurszugang über Wix (z. B. kurse.majadobelsek.com).
 - [ ] Deutsche Version. Der EN/DE-Umschalter ist im Header auskommentiert (`<!-- LANGUAGE SWITCH ... -->`); bei Einführung wieder einblenden.
 - [ ] `<meta name="robots" content="noindex">` auf allen Seiten entfernen, sobald die Seite fertig ist
 - [ ] Eigene Domain: Datei `CNAME` mit `majadobelsek.com`, DNS beim Domain-Anbieter, in GitHub Pages „Enforce HTTPS"
