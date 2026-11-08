@@ -71,7 +71,6 @@ Inhaltsbreite 1200 px, Artikeltext 680 px.
 - **Header/Navigation**: zwischen `<!-- SITE HEADER -->` und `<!-- /SITE HEADER -->`. Auf jeder Seite gleich,
   nur der aktive Menüpunkt hat `aria-current="page"` und Teal-Farbe. Pfade relativ zur Seite.
 - **Footer**: `<!-- SITE FOOTER ... -->`. Grosse Variante nur auf der Startseite, sonst klein.
-- **Abo-Band** („Get new articles by email"): auf `articles/index.html` und jedem Artikel.
 - Nach Änderungen an diesen Bausteinen mit `grep` prüfen, dass alle Seiten gleich sind.
 
 ## Neuen Artikel hinzufügen
@@ -106,11 +105,12 @@ Keine Fotos anderer Personen ohne Majas ausdrückliche Bestätigung, dass sie di
 - [x] Echte Fotos: `images/hero.jpg` (Terrasse, Querformat) und `images/portrait.jpg` – eingefügt am 8.11.2026
 - [ ] Platzhalter in eckigen Klammern füllen: `grep -rn "\[" --include=*.html .` (Jahre, Datum, Kurs-Sessions, Preis, Sprache, Vorträge, Artikeltext)
 - [x] Links: LinkedIn, ORCID, CV-PDF (8.11.2026). Kein Google-Scholar-Profil (Links entfernt).
-- [ ] Speaker-Kit-Download (`#speaker-kit-download`)
-- [ ] Formulare (Kontakt, Newsletter, Kurs-Interesse) mit einem Formulardienst verbinden (z. B. Formspree,
-      Buttondown); bis dahin funktionieren sie nicht. Datenschutzerklärung entsprechend ergänzen.
+- [x] Speaker-Kit: Porträt-Download + CV-Link (8.11.2026)
+- [ ] Formulare (Kontakt, Kurs-Interesse) mit einem Formulardienst verbinden (z. B. Formspree); bis dahin funktionieren
+      sie nicht. Datenschutzerklärung entsprechend ergänzen.
+- Newsletter-Band am 8.11.2026 entfernt (kein Newsletter geplant). Der alte Block steht im Git-Verlauf, falls er zurückkommen soll.
 - [ ] Impressum und Datenschutz: Adresse, E-Mail, Stand; von Maja prüfen lassen
-- [ ] Deutsche Version (EN/DE-Umschalter zeigt auf `#de`)
+- [ ] Deutsche Version. Der EN/DE-Umschalter ist im Header auskommentiert (`<!-- LANGUAGE SWITCH ... -->`); bei Einführung wieder einblenden.
 - [ ] `<meta name="robots" content="noindex">` auf allen Seiten entfernen, sobald die Seite fertig ist
 - [ ] Eigene Domain: Datei `CNAME` mit `majadobelsek.com`, DNS beim Domain-Anbieter, in GitHub Pages „Enforce HTTPS"
 
