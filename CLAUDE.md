@@ -1,6 +1,6 @@
 # majadobelsek.com – Arbeitsanleitung für Claude
 
-Persönliche, berufliche Website von Dr. med. Maja Dobelsek (Psychiatrie, KI, Forschung).
+Persönliche, berufliche Website von Dr. med. Maja Dobelsek (Website: „Dr. med.“; im CV: „dr. med. (Univ. Ljubljana)“ – so von Maja entschieden) (Psychiatrie, KI, Forschung).
 Maja pflegt die Seite ausschliesslich über Claude: Sie schreibt Wünsche auf Deutsch, Claude setzt um.
 Maja codet und designt nicht selbst. Antworten an Maja immer auf Deutsch, kurz, ohne Technikjargon.
 Die Website-Texte sind auf Englisch (deutsche Version geplant, siehe Offene Punkte).
@@ -104,7 +104,8 @@ Keine Fotos anderer Personen ohne Majas ausdrückliche Bestätigung, dass sie di
 
 - [x] Echte Fotos: `images/hero.jpg` (Terrasse, Querformat) und `images/portrait.jpg` – eingefügt am 8.11.2026
 - [ ] Platzhalter in eckigen Klammern füllen: `grep -rn "\[" --include=*.html .` (Jahre, Datum, Kurs-Sessions, Preis, Sprache, Vorträge, Artikeltext)
-- [ ] Links: LinkedIn-Profil-URL, ORCID, Google Scholar, CV-PDF (`#cv-pdf`), Speaker-Kit-Download
+- [x] Links: LinkedIn, ORCID, CV-PDF (8.11.2026). Kein Google-Scholar-Profil (Links entfernt).
+- [ ] Speaker-Kit-Download (`#speaker-kit-download`)
 - [ ] Formulare (Kontakt, Newsletter, Kurs-Interesse) mit einem Formulardienst verbinden (z. B. Formspree,
       Buttondown); bis dahin funktionieren sie nicht. Datenschutzerklärung entsprechend ergänzen.
 - [ ] Impressum und Datenschutz: Adresse, E-Mail, Stand; von Maja prüfen lassen
