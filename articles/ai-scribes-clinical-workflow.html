@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI ambient scribes in psychiatry: the new clinical workflow – Dr. med. Maja Dobelsek</title>
+<meta name="description" content="A practical guide for psychiatric clinics introducing AI ambient scribes: evidence on deskilling, a six-step workflow, the PDSQI-8 note check and staged access for trainees.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/site.css">
+
+<!-- ARTICLE STYLES: carried over from the original article design; colours and fonts mapped to the site palette -->
+<style>
+/* Layout: a field guide. A 680px reading column; figures, study cards and tools break out to 1040px. Chapters follow the order of the talk. */
+:root{
+  --paper:#F7F7F4; --surface:#FFFFFF; --tint:#E4EFED; --line:#DCE1DE;
+  --ink:#14212F; --ink-2:#4D5966; --accent:#1D5E5A; --accent-2:#B9D5D0;
+  --blue:#1F4E79; --orange:#8A5A3F; --todo:#F6EFE9;
+  --on-accent:#FFFFFF; --shot:#FFFFFF;
+  --display:'Libre Baskerville', Georgia, serif;
+  --body:'DM Sans', Arial, sans-serif;
+  --mono:'DM Sans', Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:400 17.5px/1.65 var(--body);margin:0}
+.page{padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px));padding-block:56px 96px;display:grid;gap:104px}
+.col{width:min(100%, 1040px);justify-self:center;display:grid;gap:20px;min-width:0}
+.wide{width:min(100%, 1040px);justify-self:center;display:grid;gap:28px;min-width:0}
+section{display:grid;gap:40px}
+p{margin:0} ul,ol{margin:0;padding-left:1.2em;display:grid;gap:8px}
+h1,h2,h3{font-family:var(--display);font-weight:500;margin:0;text-wrap:balance;line-height:1.15;color:var(--ink)}
+h1{font-size:clamp(2.2rem, 5vw, 3.6rem);font-weight:500;letter-spacing:-0.01em}
+h2{font-size:clamp(1.75rem, 3.6vw, 2.5rem)}
+h3{font-size:1.35rem;font-weight:600}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible+span,label:focus-within{outline:2px solid var(--accent);outline-offset:3px}
+.eyebrow{font:500 0.78rem/1.3 var(--mono);letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)}
+.lead{font-size:1.22rem;line-height:1.55;color:var(--ink-2)}
+.muted{color:var(--ink-2)}
+.small{font-size:0.9rem;line-height:1.5}
+b,strong{font-weight:600}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:center}
+.hero-text{display:grid;gap:22px;min-width:0}
+.byline{display:flex;flex-wrap:wrap;gap:6px 18px;font:400 0.9rem/1.4 var(--mono);color:var(--ink-2)}
+.balance{width:100%;max-width:440px;justify-self:center}
+.balance-labels{display:flex;justify-content:space-between;max-width:440px;justify-self:center;width:100%;font:600 0.95rem/1.3 var(--body);margin-top:-8px}
+.balance-labels span:last-child{color:var(--accent);text-align:right}
+.tldr{background:var(--surface);border:1px solid var(--line);padding:28px 32px;display:grid;gap:16px}
+.tldr ol{gap:10px;padding-left:1.4em}
+.tldr li::marker{font-family:var(--mono);color:var(--accent)}
+
+/* Chapter header */
+.chapter{display:grid;gap:12px;border-top:1px solid var(--line);padding-top:28px}
+.chapter .num{font:500 0.85rem/1 var(--mono);color:var(--accent);letter-spacing:0.08em}
+
+/* Problem grid */
+.four{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.four > div{background:var(--surface);border:1px solid var(--line);padding:22px 24px;display:grid;gap:8px;align-content:start}
+.four svg{width:44px;height:44px}
+.question{background:var(--accent);color:var(--on-accent);padding:30px 34px;display:grid;gap:8px}
+.question p:first-child{font:500 clamp(1.35rem,2.6vw,1.75rem)/1.3 var(--display)}
+
+/* Risk cards */
+.risks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.risk{background:var(--surface);border-top:4px solid var(--accent);padding:22px 22px 24px;display:grid;gap:12px;align-content:start}
+.curve{position:relative}
+.curve svg{width:100%;height:auto;display:block}
+.curve .tag{position:absolute;font:400 0.78rem/1.2 var(--mono);color:var(--ink-2)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:0.9rem;color:var(--ink-2)}
+.legend i{display:inline-block;width:22px;height:4px;vertical-align:middle;margin-right:8px}
+.risks.armed:not(.play) .risk{opacity:0;transform:translateY(18px)}
+.risks.play .risk{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.risks.play .risk:nth-child(2){animation-delay:.25s}
+.risks.play .risk:nth-child(3){animation-delay:.5s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* Chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 0.74rem/1 var(--mono);letter-spacing:0.04em;padding:6px 10px;border:1px solid var(--line);color:var(--ink-2);white-space:nowrap}
+.chip.emp{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.chip.op{border-style:dashed;border-color:var(--ink-2);color:var(--ink)}
+.chip.hyp{border-style:dashed;border-color:var(--orange);color:var(--orange)}
+.chip.field{border-color:var(--accent);color:var(--accent)}
+
+/* Statement */
+.statement{background:var(--ink);color:var(--paper);padding:44px 40px;display:grid;gap:16px}
+.statement p:first-child{font:500 clamp(1.8rem,4.4vw,3rem)/1.12 var(--display)}
+.statement p:last-child{font-size:1.08rem;max-width:62ch;opacity:.86}
+
+/* Study card */
+.study{display:grid;grid-template-columns:minmax(0,0.95fr) minmax(0,1.05fr);gap:36px;align-items:start;background:var(--surface);border:1px solid var(--line);padding:28px}
+.study figure{margin:0;display:grid;gap:14px;min-width:0}
+.shot{background:var(--shot);border:1px solid var(--line);padding:6px}
+.shot img{display:block;width:100%;height:auto}
+.study .body{display:grid;gap:14px;min-width:0}
+.study .src{font:500 0.82rem/1.3 var(--mono);color:var(--ink-2);border-bottom:2px solid var(--accent);padding-bottom:8px}
+.study h3{font-size:1.4rem}
+.take{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:var(--tint);padding:14px 16px;font-size:0.98rem}
+.take b{display:block}
+.take svg{width:22px;height:22px;margin-top:2px}
+.cite{font-size:0.82rem;color:var(--ink-2)}
+blockquote{margin:0;font:italic 400 1.2rem/1.45 var(--display);border-left:3px solid var(--accent);padding-left:16px}
+
+/* Callouts */
+.callout{border-left:3px solid var(--accent);padding:4px 0 4px 20px;display:grid;gap:8px}
+.callout .eyebrow{color:var(--accent)}
+.todo{background:var(--todo);border:1.5px dashed var(--orange);padding:16px 20px;display:grid;gap:6px;font-size:0.98rem}
+.todo .eyebrow{color:var(--orange)}
+
+/* Pull stat */
+.pull{display:grid;grid-template-columns:auto minmax(0,1fr);gap:32px;align-items:center;border-block:1px solid var(--line);padding-block:32px}
+.pull .big{font:500 clamp(3.4rem,9vw,6rem)/0.9 var(--display);color:var(--orange);font-variant-numeric:tabular-nums}
+
+/* Workflow */
+.wf{background:var(--surface);border:1px solid var(--line);padding:32px;display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:40px}
+.wf-scene{display:grid;gap:14px;align-content:start}
+.wf-scene svg{width:100%;height:auto;max-width:420px;justify-self:center}
+.wf-people{display:flex;justify-content:space-around;font-size:0.9rem;color:var(--ink-2);margin-top:-6px}
+.status{justify-self:center;font:500 0.82rem/1 var(--mono);letter-spacing:.05em;padding:9px 14px;border:1px solid var(--accent);color:var(--accent);transition:all .3s}
+.wf[data-phase="draft"] .status{border-style:dashed}
+.wf[data-phase="check"] .status{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.wf-steps{display:grid;gap:8px;align-content:start}
+.wf-step{all:unset;cursor:pointer;display:grid;grid-template-columns:8px 44px minmax(0,1fr);gap:16px;align-items:center;padding:12px 14px 12px 0;transition:background .3s}
+.wf-step:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wf-step .rail{align-self:stretch;background:var(--accent)}
+.wf-step[data-phase="draft"] .rail{background:repeating-linear-gradient(180deg,var(--accent) 0 8px,transparent 8px 14px)}
+.wf-step[data-phase="check"] .rail{background:var(--ink)}
+.wf-step[data-phase="pause"] .rail{background:var(--accent-2)}
+.wf-step[data-phase="pause"] .n{border-color:var(--accent-2)}
+.wf[data-phase="pause"] .wave,.wf[data-phase="pause"] .flow{animation-play-state:paused;opacity:.25}
+.wf-step .n{width:44px;height:44px;display:grid;place-items:center;border:1.5px solid var(--accent);font:500 1rem/1 var(--mono);color:var(--accent);transition:all .3s}
+.wf-step[data-phase="check"] .n{border-color:var(--ink);color:var(--ink)}
+.wf-step .t{display:grid;gap:2px}
+.wf-step .t b{font-size:1.05rem}
+.wf-step .t span{font-size:0.92rem;color:var(--ink-2)}
+.wf-step .when{font:400 0.75rem/1.2 var(--mono);color:var(--ink-2);letter-spacing:.04em;text-transform:uppercase}
+.wf-step.on{background:var(--tint)}
+.wf-step.on .n{background:var(--accent);color:var(--on-accent)}
+.wf-step.on[data-phase="check"] .n{background:var(--ink);color:var(--paper)}
+.wf-step.key .t b::after{content:" PDSQI-8";font:600 0.72rem/1 var(--mono);color:var(--on-accent);background:var(--accent);padding:3px 6px;margin-left:8px;vertical-align:2px}
+.wf-foot{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px}
+.btn{font:500 0.85rem/1 var(--mono);padding:10px 16px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.wave{animation:pulse 2.4s ease-in-out infinite;opacity:.3}
+.wave.w2{animation-delay:.4s}.wave.w3{animation-delay:.8s}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+.flow{stroke-dasharray:5 7;animation:flow 1.8s linear infinite}
+@keyframes flow{from{stroke-dashoffset:12}to{stroke-dashoffset:0}}
+.sway{transform-box:view-box;transform-origin:300px 120px;animation:sway 8s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+
+/* Monday box */
+.monday{background:var(--surface);border:1px solid var(--accent);padding:26px 30px;display:grid;gap:14px}
+.monday ul{list-style:none;padding:0;gap:10px}
+.monday li{display:grid;grid-template-columns:22px 1fr;gap:12px}
+.monday li::before{content:"";width:14px;height:14px;border:1.5px solid var(--accent);margin-top:5px}
+
+/* Raka path */
+.raka{display:grid;gap:6px}
+.raka svg{width:100%;height:auto;display:block}
+.raka-labels{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center;font-size:0.92rem}
+.raka-labels b{display:block;font-size:1rem}
+.st{transform-box:fill-box;transform-origin:center}
+.raka.armed:not(.play) .mpath{stroke-dashoffset:1}
+.raka.armed:not(.play) .st,.raka.armed:not(.play) .lab{opacity:0}
+.raka.play .mpath{animation:draw 2.8s ease-in-out .6s both}
+.raka.play .s1,.raka.play .l1{animation:pop .5s ease both}
+.raka.play .s2,.raka.play .l2{animation:pop .5s ease 1.9s both}
+.raka.play .s3,.raka.play .l3{animation:pop .5s ease 3.4s both}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+.ring{transform-box:fill-box;transform-origin:center;animation:ring 3.2s ease-out infinite}
+@keyframes ring{from{opacity:.7;transform:scale(1)}to{opacity:0;transform:scale(1.6)}}
+
+/* PDSQI tool */
+.tool{background:var(--surface);border:1px solid var(--line);display:grid}
+.tool-head{padding:24px 28px;display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line)}
+.score{font:500 2.2rem/1 var(--display);font-variant-numeric:tabular-nums}
+.score small{font:400 0.85rem/1 var(--mono);color:var(--ink-2);margin-left:6px}
+.crit{display:grid;grid-template-columns:200px minmax(0,1fr);gap:18px 24px;padding:20px 28px;border-bottom:1px solid var(--line)}
+.crit .name b{display:block;font-size:1.02rem}
+.crit .name span{font-size:0.88rem;color:var(--ink-2)}
+.anchors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.anchor{font-size:0.86rem;line-height:1.45;padding:10px 12px;background:var(--tint);border:1px solid transparent;transition:all .2s}
+.anchor em{display:block;font:500 0.72rem/1.2 var(--mono);font-style:normal;color:var(--ink-2);margin-bottom:4px}
+.anchor.hit{border-color:var(--accent);background:var(--surface)}
+.picker{grid-column:2;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.picker label{position:relative}
+.picker input{position:absolute;opacity:0;inset:0}
+.picker label span{display:grid;place-items:center;min-width:40px;height:36px;padding:0 10px;border:1px solid var(--line);font:500 0.9rem/1 var(--mono);cursor:pointer}
+.picker input:checked+span{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.picker .hint{font-size:0.82rem;color:var(--ink-2);margin-left:8px}
+.tool-foot{padding:18px 28px;display:grid;gap:10px;font-size:0.9rem;color:var(--ink-2)}
+
+/* Staged access */
+.stages{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,0.8fr) auto minmax(0,1fr);gap:14px;align-items:stretch}
+.stage{background:var(--surface);border-top:4px solid var(--accent);padding:22px;display:grid;gap:8px;align-content:start}
+.stage .eyebrow{color:var(--accent)}
+.gate{background:var(--accent);color:var(--on-accent);padding:22px;display:grid;gap:8px;align-content:center}
+.gate .eyebrow{color:var(--on-accent);opacity:.85}
+.arrow{display:grid;place-items:center;color:var(--accent);font:400 1.6rem/1 var(--mono)}
+.timeline{display:grid;gap:10px}
+.timeline .bar{display:grid;grid-template-columns:var(--a) var(--b);height:14px}
+.timeline .bar i:first-child{background:var(--tint)}
+.timeline .bar i:last-child{background:var(--accent)}
+.timeline .ticks{display:grid;grid-template-columns:var(--a) var(--b);font-size:0.86rem;gap:10px}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;counter-reset:ph}
+.phases div{border-top:3px solid var(--accent-2);padding-top:10px;font-size:0.9rem;counter-increment:ph}
+.phases div:last-child{border-color:var(--accent)}
+.phases div::before{content:counter(ph);display:block;font:500 0.85rem/1 var(--mono);color:var(--accent);margin-bottom:6px}
+
+/* Supervision tiles */
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.tile{background:var(--surface);border-top:4px solid var(--accent);padding:24px;display:grid;grid-template-columns:64px minmax(0,1fr);gap:18px;align-items:start}
+.tile svg{width:64px;height:64px}
+.tile .n{font:500 0.85rem/1 var(--mono);color:var(--accent)}
+
+/* Checklist */
+.check{background:var(--surface);border:1px solid var(--line)}
+.check-head{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:end;padding:24px 28px;border-bottom:1px solid var(--line)}
+.meter{height:6px;background:var(--tint);width:220px;max-width:100%}
+.meter i{display:block;height:100%;background:var(--accent);width:0;transition:width .4s}
+.check ol{list-style:none;padding:0;gap:0}
+.check li{border-bottom:1px solid var(--line)}
+.check li:last-child{border-bottom:0}
+.check label{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:14px;padding:16px 28px;cursor:pointer;align-items:start}
+.check input{width:20px;height:20px;accent-color:var(--accent);margin:3px 0 0}
+.check .rec{font:400 0.74rem/1.2 var(--mono);color:var(--ink-2);white-space:nowrap;padding-top:4px}
+.check input:checked ~ span:not(.rec){color:var(--ink-2);text-decoration:line-through;text-decoration-color:var(--accent-2)}
+
+/* Coverage flow */
+.flowrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.flowrow div{background:var(--surface);border-top:4px solid var(--accent);padding:18px;display:grid;gap:6px;align-content:start}
+.flowrow .big{font:500 2.2rem/1 var(--display);color:var(--accent)}
+.cov{display:grid;grid-template-columns:7fr 2fr 1fr;height:18px}
+.cov i:nth-child(1){background:var(--accent)} .cov i:nth-child(2){background:var(--line)} .cov i:nth-child(3){border:1.5px dashed var(--ink-2)}
+
+.papers{width:min(100%, 1040px);justify-self:center;display:grid;gap:14px;min-width:0}
+.papers .meta{font:500 0.74rem/1.3 var(--mono);letter-spacing:0.05em;text-transform:uppercase;color:var(--accent);margin-top:14px}
+.papers .meta:first-child{margin-top:0}
+.papers .callout{margin-top:12px}
+.raka-block{width:min(100%, 1040px);grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width: 860px){.raka-block{grid-template-columns:minmax(0,1fr)}}
+a.ref{text-decoration:none;font-size:0.85em;white-space:nowrap}
+.refs li:target{color:var(--ink);background:var(--tint)}
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:24px}
+.toc{border-block:1px solid var(--line);padding-block:24px;gap:14px}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 40px;counter-reset:toc}
+.toc li{counter-increment:toc}
+.toc a{display:grid;grid-template-columns:32px minmax(0,1fr);padding:10px 0;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);font-size:1rem;line-height:1.4}
+.toc a::before{content:counter(toc, decimal-leading-zero);font:500 0.8rem/1.6 var(--mono);color:var(--accent);grid-row:1 / span 2}
+.toc a span{font:500 0.72rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc a:hover{color:var(--accent)}
+@media (max-width: 700px){.toc ol{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+/* Author + refs */
+.author{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;background:var(--surface);border:1px solid var(--line);padding:32px}
+.author ul{gap:10px}
+.refs{font-size:0.86rem;line-height:1.5;color:var(--ink-2);display:grid;gap:8px;padding-left:1.3em}
+
+@media (max-width: 860px){
+  .hero,.study,.wf,.author{grid-template-columns:minmax(0,1fr)}
+  .risks{grid-template-columns:minmax(0,1fr)}
+  .stages{grid-template-columns:minmax(0,1fr)}
+  .stages .arrow{transform:rotate(90deg)}
+  .flowrow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .crit{grid-template-columns:minmax(0,1fr)}
+  .picker{grid-column:1}
+}
+@media (max-width: 560px){
+  body{font-size:16.5px}
+  .four,.tiles{grid-template-columns:minmax(0,1fr)}
+  .anchors{grid-template-columns:minmax(0,1fr)}
+  .study,.wf,.tldr,.monday,.author{padding:20px}
+  .statement{padding:32px 24px}
+  .pull{grid-template-columns:minmax(0,1fr);gap:12px}
+  .check label{grid-template-columns:24px minmax(0,1fr)}
+  .check .rec{grid-column:2}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .wave{opacity:1}
+}
+
+/* Site adjustments (majadobelsek.com): headings and eyebrows follow the site style */
+.page h1,.page h2,.page h3{font-weight:400;letter-spacing:-0.035em}
+.page h1{letter-spacing:-0.045em;line-height:1.15}
+.page .eyebrow{font:700 11px/1.3 'DM Sans',Arial,sans-serif;letter-spacing:0.2em;text-transform:uppercase;color:#8A5A3F}
+.page{padding-block:clamp(40px,6vw,80px) clamp(64px,8vw,104px)}
+</style>
+</head>
+<body>
+<div style="font-family: 'DM Sans', Arial, sans-serif; color: #14212F; background: #F7F7F4; font-size: 16px; line-height: 1.6">
+
+<!-- SITE HEADER (identical on every page except aria-current; update all pages together) -->
+<header style="border-bottom: 1px solid #DCE1DE; background: #F7F7F4">
+<div style="max-width: 1200px; margin: 0 auto; padding: 16px clamp(20px, 5vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<a href="../" style="text-decoration: none; color: #14212F; display: flex; flex-direction: column; gap: 0px">
+<span style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 23px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2">Dr. med. Maja Dobelsek</span>
+<span style="font-size: 12px; color: #4D5966; letter-spacing: 0.06em; text-transform: uppercase">Psychiatry · AI · Implementation</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0px 26px; font-size: 15px">
+<a href="../research.html" style="color: #14212F; text-decoration: none; display: inline-block; padding: 12px 0">Research</a>
+<a href="../articles/" aria-current="page" style="color: #1D5E5A; font-weight: 600; text-decoration: none; display: inline-block; padding: 12px 0">Articles</a>
+<a href="../speaking.html" style="color: #14212F; text-decoration: none; display: inline-block; padding: 12px 0">Speaking</a>
+<a href="../about.html" style="color: #14212F; text-decoration: none; display: inline-block; padding: 12px 0">About</a>
+<!-- COURSES HIDDEN until the course page is ready: <a href="../courses.html" style="color: #14212F; text-decoration: none; display: inline-block; padding: 12px 0">Courses</a> -->
+<!-- LANGUAGE SWITCH hidden until a German version exists: <span style="font-size: 13px; color: #4D5966; display: inline-flex; gap: 6px; align-items: center"><span style="font-weight: 600; color: #14212F">EN</span><span aria-hidden="true">/</span><a href="#de" style="color: #4D5966; text-decoration: none; display: inline-block; padding: 12px 0">DE</a></span> -->
+<a href="../contact.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid #14212F; border-radius: 6px; color: #14212F; text-decoration: none; font-weight: 500">Get in touch</a>
+</nav>
+</div>
+</header>
+<!-- /SITE HEADER -->
+
+<main class="page">
+
+<!-- HERO -->
+<header class="wide hero">
+  <div class="hero-text">
+    <p class="eyebrow">Safe AI in psychiatry · Implementation guide</p>
+    <h1>AI ambient scribes in psychiatry: the new clinical workflow</h1>
+    <p class="lead">4 recommendations on clinical workflow and governance that protect quality of care, patient safety and clinical competence, with practical tools for implementation.</p>
+    <div class="byline"><span>Dr. med. Maja Dobelsek</span><span>Psychiatry resident and AI researcher, University of St. Gallen</span><span>November 2026</span><span>8 min read</span></div>
+  </div>
+  <div style="display:grid;gap:0">
+    <svg class="balance" viewBox="0 0 600 470" role="img" aria-label="A balance gently tipping between a note, standing for relief, and a check mark, standing for competence and safety">
+      <circle cx="300" cy="235" r="220" fill="var(--tint)"/>
+      <path d="M300 120 V390 M240 390 H360" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+      <g class="sway">
+        <path d="M140 120 H460" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M160 120 L110 230 M160 120 L210 230 M440 120 L390 230 M440 120 L490 230" fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"/>
+        <rect x="140" y="184" width="40" height="46" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/>
+        <path d="M148 198 H172 M148 208 H172 M148 218 H164" stroke="var(--accent-2)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="440" cy="206" r="22" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
+        <path d="M430 206 L437 213 L451 198" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M100 230 H220 Q214 266 160 268 Q106 266 100 230 Z M380 230 H500 Q494 266 440 268 Q386 266 380 230 Z" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/>
+      </g>
+      <circle cx="300" cy="120" r="9" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
+    </svg>
+    <div class="balance-labels"><span>Relief</span><span>Competence and safety</span></div>
+  </div>
+</header>
+
+<!-- WHY -->
+<section class="col" id="why">
+  <p class="eyebrow">The problem</p>
+  <p>Ambient scribes save time. In psychiatry, however, writing the note has always been part of clinical reasoning, and handing the note to a machine creates problems on two levels.</p>
+  <p>The first concerns clinical competence. The scribe only hears, so it can only infer the mental state, and a fluent draft invites a quick signature. Trainees who document with AI from day one may never build the reasoning that writing used to train. Medical education research describes these risks as deskilling, never-skilling and mis-skilling <a class="ref" href="#r1">[1, 3, 6, 7, 11]</a>.</p>
+  <p>The second concerns the tool itself. Safeguards against unintended use are often missing, for example when the scribe crosses the line from a documentation tool to a decision support tool by generating diagnoses, formulations or treatment plans.</p>
+  <p>Hard evidence on these risks is still thin and comes neither from scribes nor from psychiatry; the only scribe study with a psychiatric focus shows an association, not proof <a class="ref" href="#r4">[4]</a>. The four recommendations below address the question that follows: how can psychiatric services introduce AI ambient scribes safely, protecting quality of care, patient safety and clinical competence? They cover clinical workflow and governance; data protection would need an article of its own.</p>
+</section>
+
+<!-- II RECOMMENDATION 1 -->
+<section class="wide" id="rec-1">
+  <div class="chapter"><p class="num">RECOMMENDATION 1</p><h2>Clinical judgement must precede the AI draft</h2><p class="muted">The most effective safeguard is the order of work, and the tool itself should enforce it. The clinician's own observations and judgement must exist before any AI draft does <a class="ref" href="#r9">[9, 10, 13, 15]</a>.</p></div>
+
+
+  <!-- WORKFLOW -->
+  <figure class="wf" data-phase="listen" id="workflow" style="margin:0" aria-label="The six-step workflow with an ambient scribe">
+    <div class="wf-scene">
+      <p class="eyebrow">The new workflow</p>
+      <svg viewBox="0 0 470 470" role="img" aria-label="Clinician on the left with a notepad, patient on the right, a phone with the scribe on the table recording both voices">
+        <circle cx="235" cy="235" r="215" fill="var(--tint)"/>
+        <circle cx="112" cy="150" r="30" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5"/>
+        <path d="M54 330 V272 C54 228, 82 208, 112 208 C142 208, 170 228, 170 272 V330 Z" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="358" cy="150" r="30" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5"/>
+        <path d="M300 330 V272 C300 228, 328 208, 358 208 C388 208, 416 228, 416 272 V330 Z" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M36 330 H434" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M80 330 V418 M390 330 V418" stroke="var(--accent-2)" stroke-width="3" stroke-linecap="round"/>
+        <rect x="146" y="298" width="52" height="32" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
+        <path d="M156 309 H188 M156 319 H180" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+        <rect x="216" y="272" width="38" height="58" rx="7" fill="var(--accent)"/>
+        <path d="M228 320 H242" stroke="var(--surface)" stroke-width="2.5" stroke-linecap="round"/>
+        <path class="wave" d="M216 254 Q235 239 254 254" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        <path class="wave w2" d="M204 238 Q235 212 266 238" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        <path class="wave w3" d="M192 222 Q235 186 278 222" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        <path class="flow" d="M148 162 Q186 178 200 204 M322 162 Q284 178 270 204" fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="wf-people"><span>Clinician</span><span>Patient</span></div>
+      <p class="status" aria-live="polite">The scribe listens</p>
+      <p class="small muted" style="text-align:center">The scribe on the table records the conversation and the dictation. The clinician takes notes alongside.</p>
+    </div>
+    <div class="wf-steps">
+      <button class="wf-step on" data-phase="listen"><span class="rail"></span><span class="n">1</span><span class="t"><span class="when">During the consultation</span><b>Talk and observe</b><span>The scribe records the conversation. The clinician observes appearance, contact, psychomotor activity, form of thought and affect.</span></span></button>
+      <button class="wf-step" data-phase="pause"><span class="rail"></span><span class="n">2</span><span class="t"><span class="when">After the conversation</span><b>Pause the scribe</b><span>Recording stops. No note is generated yet.</span></span></button>
+      <button class="wf-step" data-phase="dictate"><span class="rail"></span><span class="n">3</span><span class="t"><span class="when">The clinical layer</span><b>Dictate</b><span>The clinician dictates observations for the mental state examination, the formulation and assessment, and the plan.</span></span></button>
+      <button class="wf-step" data-phase="draft"><span class="rail"></span><span class="n">4</span><span class="t"><span class="when">Only now does the AI start</span><b>Draft</b><span>The scribe writes the first draft from the conversation and the clinician's dictation.</span></span></button>
+      <button class="wf-step key" data-phase="check"><span class="rail"></span><span class="n">5</span><span class="t"><span class="when">Before signing</span><b>Check</b><span>Look for omissions, errors and anything the AI may have inferred.</span></span></button>
+      <button class="wf-step" data-phase="check"><span class="rail"></span><span class="n">6</span><span class="t"><span class="when">Clinician</span><b>Sign</b><span>Responsibility stays with the clinician.</span></span></button>
+    </div>
+    <div class="wf-foot">
+      <p class="small"><b>Steps 2 and 3 are built into the tool.</b> The scribe waits for the clinician's dictation before drafting, so the review never takes place within a frame set by the tool.</p>
+      <button class="btn" id="wfToggle" type="button">Pause</button>
+    </div>
+  </figure>
+
+  <div class="wide" style="gap:20px">
+    <div style="display:grid;gap:8px"><p class="eyebrow">What the tool must do</p><h3>Four rules for the scribe</h3><p class="small muted">To be agreed with the vendor and built into the prompt and the product before go-live.</p></div>
+    <div class="four">
+      <div><p class="eyebrow">1</p><b>Wait for the clinician</b><p class="muted small">After the conversation the scribe pauses. It drafts only once the clinician has dictated observations, formulation and plan.</p></div>
+      <div><p class="eyebrow">2</p><b>Never infer psychopathology</b><p class="muted small">The tool draws no conclusions about the mental state from the conversation. Missing findings appear as placeholders marked "missing" or "not assessed".</p></div>
+      <div><p class="eyebrow">3</p><b>Document only what was said</b><p class="muted small">Explicit statements may be recorded. If the patient says they wake at four and cannot fall asleep again, the note may record early morning awakening, but not a full mental state examination.</p></div>
+      <div><p class="eyebrow">4</p><b>Never write formulation or plan alone</b><p class="muted small">Assessment, formulation and plan come only from the clinician's dictation.</p></div>
+    </div>
+  </div>
+
+  <div class="monday col" style="width:100%;max-width:1040px">
+    <p class="eyebrow">Implementation steps</p>
+    <h3>Before the first user goes live</h3>
+    <ul>
+      <li>Train every user on the six steps, including experienced specialists. The workflow is the safeguard, so it cannot be optional.</li>
+      <li>Confirm with the vendor that the scribe pauses after the conversation and follows the four rules above.</li>
+    </ul>
+  </div>
+
+  </section>
+
+<!-- III RECOMMENDATION 2 -->
+<section class="wide" id="rec-2">
+  <div class="chapter"><p class="num">RECOMMENDATION 2</p><h2>Every draft is reviewed with the PDSQI-8 before sign-off</h2><p class="muted">Reviewing a fluent draft is a distinct skill: clinicians should first learn to write, then learn to review, and only then use AI in daily practice <a class="ref" href="#r12">[12]</a>.</p></div>
+  <div class="wide" style="max-width:760px"><div class="raka" data-reveal>
+        <svg viewBox="0 0 640 230" aria-label="A dashed path grows from station 1, writing yourself, to station 2, review training, to station 3, using AI in daily practice">
+          <defs><mask id="grow"><path class="mpath" d="M110 180 C190 168, 250 146, 320 130 C400 112, 470 86, 540 60" fill="none" stroke="#fff" stroke-width="10" pathLength="1" stroke-dasharray="1"/></mask></defs>
+          <circle cx="320" cy="125" r="118" fill="var(--tint)"/>
+          <path d="M110 180 C190 168, 250 146, 320 130 C400 112, 470 86, 540 60" fill="none" stroke="var(--accent-2)" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" mask="url(#grow)"/>
+          <g class="st s1"><circle cx="110" cy="180" r="30" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><path d="M104 172 L110 167 V193" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <g class="st s2"><circle cx="320" cy="130" r="30" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><path d="M311 122 C311 113, 329 113, 329 122 C329 130, 311 134, 311 143 H329" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <g class="st s3"><circle class="ring" cx="540" cy="60" r="36" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="540" cy="60" r="36" fill="var(--accent)"/><path d="M530 48 C532 42, 548 42, 550 50 C551 56, 543 58, 540 59 C545 60, 552 63, 550 70 C548 78, 532 78, 530 72" fill="none" stroke="var(--on-accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+        </svg>
+        <div class="raka-labels"><div class="lab l1"><b>Independent writing</b>core skill</div><div class="lab l2"><b>Review training</b>second core skill</div><div class="lab l3"><b>Use AI</b>in daily practice</div></div></div></div>
+  <div class="col" style="width:100%;max-width:1040px"><p>The PDSQI-9 <a class="ref" href="#r5">[5]</a> is a validated instrument for rating AI summaries of the medical record against a written source. An ambient scribe has no written source: the reference is the consultation itself. I therefore adapted it for psychiatry. The clinician who led the consultation rates the AI note right afterwards, against their memory of the conversation. The item "citation" falls away, which leaves eight criteria.</p></div>
+  <div class="tool" id="pdsqi">
+    <div class="tool-head">
+      <div style="display:grid;gap:6px"><p class="eyebrow">Interactive self-assessment of a recent AI-drafted note</p><p class="small muted">Select a score per criterion. Levels 2 and 4 lie between the anchors.</p></div>
+      <div style="display:grid;gap:6px;justify-items:end"><p class="score"><span id="sum">0</span><small>/ 35</small></p><p class="small muted" id="flag">Stigmatising language: not rated</p></div>
+    </div>
+    <div id="crits"></div>
+    <div class="tool-foot">
+      <p><b>Examples.</b> Distortion: a suspicion raised in the consultation appears as a confirmed diagnosis. Relevant omission: the agreed medication change is missing. Synthesis: instead of "sleep problems, medication missed twice, no daily structure", write "reduced adherence with subsequent destabilisation of the sleep-wake rhythm".</p>
+      <p>The PDSQI-8 is my working adaptation and is not itself validated. In my trial it is collected as a descriptive outcome. <button class="btn" id="reset" type="button" style="margin-left:8px;padding:6px 10px">Reset</button></p>
+    </div>
+  </div>
+</section>
+
+<!-- IV RECOMMENDATION 3 -->
+<section class="wide" id="rec-3">
+  <div class="chapter"><p class="num">RECOMMENDATION 3</p><h2>Scribe access for trainees is earned, not granted</h2><p class="muted">New residents write their notes themselves until a supervisor confirms that they can. Access depends on demonstrated competence, not on a date. Others have arrived at the same idea with different thresholds, none of them based on data <a class="ref" href="#r2">[2, 7, 8]</a>.</p></div>
+
+  <div class="stages" role="group" aria-label="Staged access in three steps">
+    <div class="stage"><p class="eyebrow">Stage 0</p><h3>New residents and trainee psychologists</h3><p class="small muted">Usually the first year of training</p><p class="small"><b>Scribe:</b> not for primary documentation<br><b>Self-written:</b> the entire note</p></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="gate"><p class="eyebrow">Assessment</p><p style="font-weight:600">A supervisor confirms that self-written admission notes are good enough</p><p class="small">Instrument: PDQI-9 Psych</p></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="stage"><p class="eyebrow">Stage 1</p><h3>Advanced trainees and specialists</h3><p class="small"><b>Scribe:</b> full drafting support<br><b>Self-written:</b> the clinical layer of every note</p></div>
+  </div>
+
+  <div class="callout col" style="width:100%;max-width:1040px">
+    <p class="eyebrow">From my research · PDQI-9 Psych</p>
+    <p>For the assessment I adapted the validated PDQI-9 <a class="ref" href="#r14">[14]</a> to psychiatric admission notes, with psychiatric anchors and four safety-critical elements: suicidality, risk to others or self-neglect, differential diagnosis and the plan. The adaptation is not yet validated.</p>
+  </div>
+
+  <div class="monday col" style="width:100%;max-width:1040px">
+    <p class="eyebrow">Implementation steps</p>
+    <h3>Gate access by competence</h3>
+    <ul>
+      <li>Record each trainee's stage and set up tool access to match.</li>
+      <li>Let supervisors decide when access is granted, based on their rating of self-written admission notes.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- V RECOMMENDATION 4 -->
+<section class="wide" id="rec-4">
+  <div class="chapter"><p class="num">RECOMMENDATION 4</p><h2>Supervision targets clinical reasoning, not the note</h2><p class="muted">Once a scribe writes part of the note, the note no longer shows reliably what a trainee thinks <a class="ref" href="#r9">[9]</a>. Supervisors give feedback on observations and reasoning directly. Four formats work together.</p></div>
+  <div class="tiles">
+    <div class="tile"><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="30" cy="26" r="10" fill="none" stroke="var(--accent)" stroke-width="3"/><path d="M14 64 C14 46, 46 46, 46 64" fill="none" stroke="var(--accent)" stroke-width="3"/><circle cx="66" cy="44" r="8" fill="none" stroke="var(--accent)" stroke-width="3"/><path d="M52 74 H90 M54 74 V88 M88 74 V88 M58 66 H86 M30 70 V88" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/></svg><div style="display:grid;gap:6px"><p class="n">1</p><h3>Bedside teaching</h3><p class="small muted">A supervisor observes the interview. In Switzerland, the SIWF already asks for at least four workplace-based assessments (Mini-CEX or DOPS) per year.</p></div></div>
+    <div class="tile"><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="40" cy="28" r="12" fill="none" stroke="var(--accent)" stroke-width="3"/><path d="M18 76 C18 54, 62 54, 62 76" fill="none" stroke="var(--accent)" stroke-width="3"/><circle cx="72" cy="66" r="14" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/><path d="M65 66 L70 71 L79 61" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><div style="display:grid;gap:6px"><p class="n">2</p><h3>Train the supervisors</h3><p class="small muted">Supervisors learn the workflow, typical scribe errors and the PDSQI-8 themselves, so they can tell what a trainee thought and what the AI generated.</p></div></div>
+    <div class="tile"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M10 22 H74 V64 H40 L26 78 V64 H10 Z" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linejoin="round"/><path d="M20 36 H62 M20 48 H52" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/><path class="wave" d="M80 6 L83 15 L92 18 L83 21 L80 30 L77 21 L68 18 L77 15 Z" fill="var(--accent)"/></svg><div style="display:grid;gap:6px"><p class="n">3</p><h3>Use AI-generated feedback on interviewing</h3><p class="small muted">A suitably prompted AI tool reads the transcript and shows which questions were asked and which were missed, such as the follow-up questions after a positive suicide screen. This needs documented consent from the trainee, with a real option to decline.</p></div></div>
+    <div class="tile"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M24 16 H72 V88 H24 Z" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linejoin="round"/><path d="M38 10 H58 V22 H38 Z" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/><path d="M32 40 L36 44 L44 36 M50 40 H64 M32 58 L36 62 L44 54 M50 58 H64 M32 76 L36 80 L44 72 M50 76 H60" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><div style="display:grid;gap:6px"><p class="n">4</p><h3>Oral case presentations with the Assessment of Reasoning Tool</h3><p class="small muted">Syndrome, key symptoms, differential diagnoses, risk and plan, rated in a structured way.</p></div></div>
+  </div>
+
+  <div class="papers"><p>For oral case presentations, the Assessment of Reasoning Tool rates five domains of clinical reasoning, from data gathering to metacognition <a class="ref" href="#r16">[16]</a>.</p></div>
+</section>
+
+<!-- AUTHOR -->
+<section class="wide" id="author">
+  <div class="author">
+    <div style="display:grid;gap:14px;align-content:start">
+      <p class="eyebrow">About the author</p>
+      <h2 style="font-size:1.8rem">Dr. med. Maja Dobelsek</h2>
+      <p>Psychiatry resident, AI researcher and PhD candidate at the University of St. Gallen. I research AI ambient scribes in psychiatric care, with one aim: AI should strengthen the human contact in psychiatry and keep patients safe.</p>
+      <p><a href="https://www.linkedin.com/in/maja-dobelsek/">LinkedIn</a> · <a href="https://orcid.org/0009-0009-3989-0104">ORCID</a></p>
+    </div>
+    <div style="display:grid;gap:14px;align-content:start">
+      <p class="eyebrow">Behind this article</p>
+      <ul class="small">
+        <li>Principal investigator of a clinical trial of an ambient scribe in psychiatric care</li>
+        <li>Developed the PDSQI-8 and PDQI-9 Psych adaptations and the 64-item content coverage checklist</li>
+        <li>Member of a hospital digital transformation team and of the AlpineAI pilot project with an ambient scribe</li>
+        <li>Daily user of an ambient scribe for psychiatric admission reports</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col" style="width:100%;max-width:1040px">
+    <p class="lead" style="font-family:var(--display);font-size:1.4rem;color:var(--ink)">Organisations introducing ambient scribes in psychiatric or mental health services are welcome to <a href="../contact.html">get in touch</a> to exchange experience on safeguards and implementation.</p>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="col" id="references">
+  <p class="eyebrow">References</p>
+  <ol class="refs">
+    <li id="r1">Abdulnour RE, Gin B, Boscardin CK. Educational strategies for clinical supervision of artificial intelligence use. N Engl J Med. 2025;393(8):786–797. <a href="https://doi.org/10.1056/NEJMra2503232">doi:10.1056/NEJMra2503232</a></li>
+    <li id="r2">Abernethy J et al. Integrating AI scribes into medical education: guardrails for preserving clinical reasoning. J Gen Intern Med. 2026;41(9):2598–2602. <a href="https://doi.org/10.1007/s11606-025-10149-w">doi:10.1007/s11606-025-10149-w</a></li>
+    <li id="r3">Budzyń K et al. Endoscopist deskilling risk after exposure to artificial intelligence in colonoscopy: a multicentre, observational study. Lancet Gastroenterol Hepatol. 2025;10(10):896–903. <a href="https://doi.org/10.1016/S2468-1253(25)00133-5">doi:10.1016/S2468-1253(25)00133-5</a></li>
+    <li id="r4">Castro VM et al. Psychiatric documentation and management in primary care with artificial intelligence scribe use. JAMA Psychiatry. 2026;83(3):281–286. <a href="https://doi.org/10.1001/jamapsychiatry.2025.4303">doi:10.1001/jamapsychiatry.2025.4303</a></li>
+    <li id="r5">Croxford E et al. Development and validation of the provider documentation summarization quality instrument for large language models. J Am Med Inform Assoc. 2025;32(6):1050–1060. <a href="https://doi.org/10.1093/jamia/ocaf068">doi:10.1093/jamia/ocaf068</a></li>
+    <li id="r6">Heudel PE et al. Artificial intelligence in medicine: a scoping review of the risk of deskilling and loss of expertise among physicians. ESMO Real World Data Digit Oncol. 2026;12:100693. <a href="https://doi.org/10.1016/j.esmorw.2026.100693">doi:10.1016/j.esmorw.2026.100693</a></li>
+    <li id="r7">Ke Y et al. AI-induced never-skilling in medical education. Nat Med. 2026;32(6):1997–2006. <a href="https://doi.org/10.1038/s41591-026-04438-y">doi:10.1038/s41591-026-04438-y</a></li>
+    <li id="r8">Khan M et al. Artificial intelligence in psychiatric graduate medical education. Acad Psychiatry. Published online July 28, 2026. <a href="https://doi.org/10.1007/s40596-026-02406-9">doi:10.1007/s40596-026-02406-9</a></li>
+    <li id="r9">McGaughey S et al. When the scribe does the reasoning: ambient artificial intelligence, inference impersonation, and the development of trainees’ clinical judgment. Acad Med. Published online September 15, 2026. <a href="https://doi.org/10.1093/acamed/wvag287">doi:10.1093/acamed/wvag287</a></li>
+    <li id="r10">Rucker P, Miller M, Armstrong D. How Cigna saves millions by having its doctors reject claims without reading them. ProPublica and The Capitol Forum. March 25, 2023. <a href="https://www.propublica.org/article/cigna-pxdx-medical-health-insurance-rejection-claims">propublica.org</a></li>
+    <li id="r11">Qazi IA et al. Automation bias in large language model–assisted diagnostic reasoning among physicians trained in AI literacy — a randomized clinical trial. NEJM AI. 2026;3(5). <a href="https://doi.org/10.1056/AIoa2501001">doi:10.1056/AIoa2501001</a></li>
+    <li id="r12">Raka Y, Van Deusen R, Wiberg H. From authoring to editing: a competency framework for trainee use of ambient AI clinical documentation. npj Digit Med. 2026;9:785. <a href="https://doi.org/10.1038/s41746-026-03351-5">doi:10.1038/s41746-026-03351-5</a></li>
+    <li id="r13">Roth AS, Ayers NB. AI scribe functions in psychiatric practice: clinical oversight, consent, and regulation. Lancet Psychiatry. 2026;13(9):804. <a href="https://doi.org/10.1016/S2215-0366(26)00201-4">doi:10.1016/S2215-0366(26)00201-4</a></li>
+    <li id="r14">Stetson PD et al. Assessing electronic note quality using the Physician Documentation Quality Instrument (PDQI-9). Appl Clin Inform. 2012;3(2):164–174. <a href="https://doi.org/10.4338/ACI-2011-11-RA-0070">doi:10.4338/ACI-2011-11-RA-0070</a></li>
+    <li id="r15">Talwalkar JS et al. Impact of an ambient AI scribe on medical student objective structured clinical examination notes: nonrandomized clinical trial. JMIR Med Educ. 2026;12:e88264. <a href="https://doi.org/10.2196/88264">doi:10.2196/88264</a></li>
+    <li id="r16">Thammasitboon S et al. The Assessment of Reasoning Tool (ART): structuring the conversation between teachers and learners. Diagnosis. 2018;5(4):197–203. <a href="https://doi.org/10.1515/dx-2018-0052">doi:10.1515/dx-2018-0052</a></li>
+  </ol>
+  <p class="small muted">Views are my own and do not represent my employer.</p>
+</section>
+</main>
+
+<!-- SITE FOOTER (small; standalone) -->
+<footer style="background: #14212F; color: #C9D1D6; padding: 36px clamp(20px, 5vw, 48px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font-size: 13px">
+<span>© 2026 Dr. med. Maja Dobelsek · Personal professional website · not a clinical service</span>
+<span style="display: flex; gap: 20px"><a href="../impressum.html" style="color: #C9D1D6">Impressum</a><a href="../datenschutz.html" style="color: #C9D1D6">Datenschutz</a></span>
+</div>
+</footer>
+
+</div>
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Workflow: a playhead cycles through the steps; click a step to hold it */
+  var wf = document.getElementById('workflow');
+  var steps = Array.prototype.slice.call(wf.querySelectorAll('.wf-step'));
+  var status = wf.querySelector('.status');
+  var btn = document.getElementById('wfToggle');
+  var labels = {listen:'The scribe listens', pause:'Paused · no note yet', dictate:'Clinician dictates', draft:'The AI drafts', check:'Clinician checks and signs'};
+  var i = 0, timer = null, visible = false;
+  function set(n){
+    i = n;
+    steps.forEach(function(s,k){ s.classList.toggle('on', k===n); s.setAttribute('aria-pressed', k===n ? 'true' : 'false'); });
+    var ph = steps[n].getAttribute('data-phase');
+    wf.setAttribute('data-phase', ph);
+    status.textContent = labels[ph];
+  }
+  function play(){ stop(true); timer = setInterval(function(){ set((i+1) % steps.length); }, 2800); btn.textContent = 'Pause'; }
+  function stop(keep){ if(timer){ clearInterval(timer); timer = null; } if(!keep) btn.textContent = 'Play'; }
+  steps.forEach(function(s,k){ s.addEventListener('click', function(){ stop(); set(k); }); });
+  btn.addEventListener('click', function(){ timer ? stop() : play(); });
+  set(0);
+  if (reduce) { btn.textContent = 'Play'; }
+  else if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (e.isIntersecting && !visible){ visible = true; if (btn.textContent === 'Pause') play(); }
+      else if (!e.isIntersecting && visible){ visible = false; if (timer) { stop(true); } }
+    }); }, {threshold:0.3}).observe(wf);
+  } else { play(); }
+
+  /* Reveal: only elements still below the fold get armed, so the page is complete at rest */
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('play'); io.unobserve(e.target); }
+    }); }, {threshold:0.35});
+    document.querySelectorAll('[data-reveal]').forEach(function(el){
+      if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('armed'); io.observe(el); }
+    });
+  }
+
+  /* PDSQI-8 self-check */
+  var C = [
+    ['Accurate','Is the content correct?','Several serious errors with obvious distortion or fabrication','A statement was made but sits in the wrong context, for example an overly specific diagnosis','Every statement can be traced back to the consultation'],
+    ['Thorough','Nothing relevant left out?','More than one relevant omission','Exactly one relevant omission','No relevant or potentially relevant omissions'],
+    ['Useful','Useful for the next clinician?','No statement is relevant for the next clinician','Relevant, but too detailed or too brief','Only relevant statements at the right level of detail'],
+    ['Organised','Logically structured?','No logical order or grouping','Follows the flow of the conversation, without a structure of its own','Consistently chronological or problem-oriented'],
+    ['Comprehensible','Clear and unambiguous?','Too complex throughout, inconsistent, unfamiliar terms','Spoken language carried over unchanged','Plain, familiar language throughout, well built'],
+    ['Succinct','Free of redundancy?','Wordy and redundant throughout','One statement redundant in content, or several redundant phrasings','Every statement in as few words as possible'],
+    ['Synthesised','Accurately condensed?','Wrong conclusions or groupings','Statements left unconnected where a conclusion was possible','Integrated clinical synthesis, prioritised by relevance']
+  ];
+  var host = document.getElementById('crits');
+  var html = '';
+  C.forEach(function(c,k){
+    html += '<div class="crit"><div class="name"><b>'+(k+1)+' · '+c[0]+'</b><span>'+c[1]+'</span></div>'+
+      '<div class="anchors"><p class="anchor" data-v="1"><em>1 · not at all</em>'+c[2]+'</p><p class="anchor" data-v="3"><em>3</em>'+c[3]+'</p><p class="anchor" data-v="5"><em>5 · fully</em>'+c[4]+'</p></div>'+
+      '<div class="picker" role="radiogroup" aria-label="Score for '+c[0]+'">';
+    for (var v=1; v<=5; v++) html += '<label><input type="radio" name="q'+k+'" id="q'+k+'v'+v+'" value="'+v+'"><span>'+v+'</span></label>';
+    html += '<span class="hint" id="h'+k+'"></span></div></div>';
+  });
+  html += '<div class="crit"><div class="name"><b>8 · Stigmatising language</b><span>Yes or no</span></div>'+
+    '<div class="anchors" style="grid-template-columns:minmax(0,1fr)"><p class="anchor"><em>Look for</em>"claims", "allegedly" · "refuses" instead of "does not tolerate" · "alcoholic" instead of "person with an alcohol use disorder" · "abuse"</p></div>'+
+    '<div class="picker" role="radiogroup" aria-label="Stigmatising language present"><label><input type="radio" name="q7" id="q7y" value="yes"><span>Yes</span></label><label><input type="radio" name="q7" id="q7n" value="no"><span>No</span></label></div></div>';
+  host.innerHTML = html;
+  var sumEl = document.getElementById('sum'), flag = document.getElementById('flag');
+  function update(){
+    var sum = 0;
+    C.forEach(function(c,k){
+      var sel = host.querySelector('input[name="q'+k+'"]:checked');
+      var v = sel ? +sel.value : 0; sum += v;
+      var row = host.querySelectorAll('.crit')[k];
+      row.querySelectorAll('.anchor').forEach(function(a){ a.classList.toggle('hit', v && +a.getAttribute('data-v') === v); });
+      document.getElementById('h'+k).textContent = v===2 ? 'between 1 and 3' : v===4 ? 'between 3 and 5' : '';
+    });
+    sumEl.textContent = sum;
+    var s = host.querySelector('input[name="q7"]:checked');
+    flag.textContent = 'Stigmatising language: ' + (s ? (s.value==='yes' ? 'present, revise before signing' : 'none found') : 'not rated');
+  }
+  host.addEventListener('change', update);
+  document.getElementById('reset').addEventListener('click', function(){ host.querySelectorAll('input').forEach(function(x){ x.checked = false; }); update(); });
+})();
+</script>
+</body>
+</html>

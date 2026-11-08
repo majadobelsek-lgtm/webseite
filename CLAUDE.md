@@ -37,7 +37,8 @@ contact.html                Kontakt
 impressum.html, datenschutz.html   Rechtliches (Deutsch)
 404.html                    Fehlerseite (nutzt absolute Links "/", weil sie unter jeder URL erscheint)
 articles/index.html         Artikelübersicht
-articles/<slug>.html        Einzelne Artikel
+articles/<slug>.html        Einzelne Artikel. Sonderfall: `ai-scribes-clinical-workflow.html` hat ein eigenes, interaktives Layout
+                            (eigenes Stylesheet im <head>, auf Website-Farben/-Schriften umgestellt; Script für Workflow-Animation und PDSQI-8-Selbsttest)
 css/site.css                Gemeinsame Basis-Styles (Body, Fokus, Mobile-Hero)
 css/fonts.css, fonts/       Selbst gehostete Schriften (DSGVO: kein Google-Fonts-Abruf)
 images/                     Bilder (hero.jpg, portrait.jpg, articles/<slug>.jpg)
