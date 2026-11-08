@@ -78,7 +78,10 @@ Inhaltsbreite 1200 px, Artikeltext 680 px.
 Maja schickt Titel, Text (oft als Word/PDF/Docs-Artifact oder eingefügt) und ggf. Bild.
 
 1. Slug wählen: kurz, englisch, Kleinbuchstaben mit Bindestrichen (z. B. `deskilling-next-generation`).
-2. `articles/vision-ai-psychiatry.html` nach `articles/<slug>.html` kopieren.
+2. Den neuesten Artikel (z. B. `articles/psychiatrist-work-ai-everywhere.html`) nach `articles/<slug>.html` kopieren.
+   Er enthält eine animierte Grafik (`<!-- ARTICLE GRAPHIC -->`, Styles mit Präfix `.aig`); für einen neuen Artikel
+   entfernen oder ersetzen. Referenzliste (`<section aria-label="References">`) bei Bedarf aus dem Git-Verlauf der
+   früheren Vorlage `vision-ai-psychiatry.html` übernehmen.
 3. Ersetzen: `<title>`, `<meta name="description">`, Eyebrow (Typ · Thema), `<h1>`, Untertitel,
    Datum und Lesezeit (≈ Wörter / 220, aufrunden), Artikeltext, Referenzen, „Cite this essay",
    Share-Links (Slug + URL-kodierter Titel), „Keep reading" (zwei andere Artikel/Seiten).
