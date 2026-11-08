@@ -1,0 +1,22 @@
+/* Shared base styles for majadobelsek.com.
+   Page layout and component styles are inline in each page (copied from the design).
+   Design tokens: see CLAUDE.md. */
+@import url("fonts.css");
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: #F7F7F4; }
+img { max-width: 100%; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #1D5E5A; outline-offset: 2px;
+}
+
+/* Home hero: photo layout on small screens */
+@media (max-width: 760px) {
+  .hv-hero { min-height: 780px !important; align-items: flex-end !important; }
+  .hv-scrim { background: linear-gradient(0deg, rgba(18,46,44,0.97) 0%, rgba(18,46,44,0.9) 46%, rgba(18,46,44,0.25) 64%, rgba(18,46,44,0) 76%) !important; }
+  .hv-photo { object-position: 68% 15% !important; }
+}
+
+/* Form status message (contact / subscribe forms) */
+.form-note { font-size: 14px; color: #4D5966; margin: 0; }

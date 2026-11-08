@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. med. Maja Dobelsek – AI in Psychiatry</title>
+<meta name="description" content="Psychiatrist and clinician-researcher at Psychiatrie St. Gallen and HSG. Research on AI ambient scribes in routine psychiatric care.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./css/site.css">
+</head>
+<body>
+<div style="font-family: 'DM Sans', Arial, sans-serif; color: #14212F; background: #F7F7F4; font-size: 16px; line-height: 1.6">
+
+<!-- SITE HEADER (identical on every page except aria-current; update all pages together) -->
+<header style="border-bottom: 1px solid #DCE1DE; background: #F7F7F4">
+<div style="max-width: 1200px; margin: 0 auto; padding: 16px clamp(20px, 5vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<a href="#top" style="text-decoration: none; color: #14212F; display: flex; flex-direction: column; gap: 0px">
+<span style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 23px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2">Dr. med. Maja Dobelsek</span>
+<span style="font-size: 12px; color: #4D5966; letter-spacing: 0.06em; text-transform: uppercase">Psychiatry · AI · Implementation</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0px 26px; font-size: 15px">
+<a href="./research.html" style="color: #14212F; text-decoration: none; display: inline-block; padding: 12px 0">Research</a>
+<a href="./articles/" style="color: #14212F; text-decoration: none; display: inline-block; padding: 12px 0">Articles</a>
+<a href="./speaking.html" style="color: #14212F; text-decoration: none; display: inline-block; padding: 12px 0">Speaking</a>
+<a href="./about.html" style="color: #14212F; text-decoration: none; display: inline-block; padding: 12px 0">About</a>
+<a href="./courses.html" style="color: #14212F; text-decoration: none; display: inline-block; padding: 12px 0">Courses</a>
+<span style="font-size: 13px; color: #4D5966; display: inline-flex; gap: 6px; align-items: center"><span style="font-weight: 600; color: #14212F">EN</span><span aria-hidden="true">/</span><a href="#de" style="color: #4D5966; text-decoration: none; display: inline-block; padding: 12px 0">DE</a></span>
+<a href="./contact.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid #14212F; border-radius: 6px; color: #14212F; text-decoration: none; font-weight: 500">Get in touch</a>
+</nav>
+</div>
+</header>
+<!-- /SITE HEADER -->
+
+<section id="top" class="hv-hero" style="position: relative; overflow: hidden; background: #14212F; min-height: clamp(560px, 44vw, 680px); display: flex; align-items: center">
+<img class="hv-photo" src="./images/hero.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% 30%">
+<div class="hv-scrim" aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,46,44,0.95) 0%, rgba(18,46,44,0.88) 30%, rgba(18,46,44,0.5) 46%, rgba(18,46,44,0) 62%)"></div>
+<div style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 48px); box-sizing: border-box">
+<div style="max-width: 560px; display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; color: #DAB49A">Psychiatry · AI · Clinical implementation</p>
+<h1 style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(38px, 4.6vw, 62px); line-height: 1.15; font-weight: 400; letter-spacing: -0.045em; color: #FFFFFF">AI in Psychiatry.<br>Grounded in clinical care.</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #E7F1EF; max-width: 500px">I study how ambient AI scribes affect documentation, clinical work and the therapeutic relationship in routine psychiatric care.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 4px">
+<a href="./research.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 24px; background: #FFFFFF; color: #14212F; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 600">Explore my research <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+<a href="./contact.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 24px; border: 1px solid #FFFFFF; color: #FFFFFF; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 500">Get in touch</a>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-label="Study at a glance" style="background: #FFFFFF; border-top: 1px solid #DCE1DE; border-bottom: 1px solid #DCE1DE; padding: 28px clamp(20px, 5vw, 48px)">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px 32px">
+<div style="display: flex; gap: 14px; align-items: center">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1D5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg>
+<span style="display: flex; flex-direction: column"><span style="font-size: 12px; color: #4D5966; letter-spacing: 0.04em">Study</span><span style="font-size: 15px; font-weight: 600">NCT07777224 · S012026</span></span>
+</div>
+<div style="display: flex; gap: 14px; align-items: center">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1D5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"></path><path d="M18.5 14.8c1.6.8 2.6 2.6 3 5.2"></path></svg>
+<span style="display: flex; flex-direction: column"><span style="font-size: 12px; color: #4D5966; letter-spacing: 0.04em">Participants</span><span style="font-size: 15px; font-weight: 600">47 clinicians</span></span>
+</div>
+<div style="display: flex; gap: 14px; align-items: center">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1D5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+<span style="display: flex; flex-direction: column"><span style="font-size: 12px; color: #4D5966; letter-spacing: 0.04em">Sites</span><span style="font-size: 15px; font-weight: 600">8 clinic sites</span></span>
+</div>
+<div style="display: flex; gap: 14px; align-items: center">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1D5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"></rect><path d="M3.5 10h17"></path><path d="M8 3v4"></path><path d="M16 3v4"></path></svg>
+<span style="display: flex; flex-direction: column"><span style="font-size: 12px; color: #4D5966; letter-spacing: 0.04em">Timeline</span><span style="font-size: 15px; font-weight: 600">Aug 2026 – Feb 2027</span></span>
+</div>
+<div style="display: flex; gap: 14px; align-items: center">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1D5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V6"></path><path d="M16 20v-8"></path><path d="M21 20H3"></path></svg>
+<span style="display: flex; flex-direction: column"><span style="font-size: 12px; color: #4D5966; letter-spacing: 0.04em">Method</span><span style="font-size: 15px; font-weight: 600">Nonrandomized controlled trial</span></span>
+</div>
+</div>
+</section>
+
+<section id="why" style="padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 48px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 24px 96px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; color: #8A5A3F">Why this work matters</p>
+<h2 style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(30px, 3.2vw, 43px); line-height: 1.2; font-weight: 400; letter-spacing: -0.035em">Better tools. Careful evaluation.</h2>
+</div>
+<p style="margin: 0; padding-top: clamp(0px, 2.6vw, 36px); font-size: 16px; line-height: 1.6; color: #52646C">My aim is to improve psychiatric care while keeping patients and clinical judgment at the centre. Efficiency matters, but documentation quality and therapeutic alliance matter just as much.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px 0px; border-top: 1px solid #DCE1DE; padding-top: 37px; margin-top: 2px">
+<div style="padding: 0 27px 0 0">
+<span style="width: 44px; height: 44px; border: 1px solid #AB775B; border-radius: 50%; display: grid; place-items: center; color: #8A5A3F; font-size: 15px; font-weight: 700; margin-bottom: 18px">01</span>
+<h3 style="margin: 0 0 12px 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: 19px; line-height: 1.2; font-weight: 400; letter-spacing: -0.035em">Efficiency</h3>
+<p style="margin: 0; font-size: 14px; color: #5D6870">Does the scribe reduce clinician documentation time?</p>
+</div>
+<div style="padding: 0 27px; border-left: 1px solid #DCE1DE">
+<span style="width: 44px; height: 44px; border: 1px solid #AB775B; border-radius: 50%; display: grid; place-items: center; color: #8A5A3F; font-size: 15px; font-weight: 700; margin-bottom: 18px">02</span>
+<h3 style="margin: 0 0 12px 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: 19px; line-height: 1.2; font-weight: 400; letter-spacing: -0.035em">Documentation quality</h3>
+<p style="margin: 0; font-size: 14px; color: #5D6870">Does it change the quality of psychiatric assessment reports?</p>
+</div>
+<div style="padding: 0 27px; border-left: 1px solid #DCE1DE">
+<span style="width: 44px; height: 44px; border: 1px solid #AB775B; border-radius: 50%; display: grid; place-items: center; color: #8A5A3F; font-size: 15px; font-weight: 700; margin-bottom: 18px">03</span>
+<h3 style="margin: 0 0 12px 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: 19px; line-height: 1.2; font-weight: 400; letter-spacing: -0.035em">Therapeutic alliance</h3>
+<p style="margin: 0; font-size: 14px; color: #5D6870">Does it affect patient-perceived alliance and empathy?</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="research" style="background: #14212F; color: #F2F4F3; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 48px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: center">
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; color: #DAB49A">Featured research · I am the principal investigator</p>
+<h2 style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.12; font-weight: 500; color: #FFFFFF">AI ambient scribing in routine psychiatric care.</h2>
+<p style="margin: 0; font-size: 17px; color: #C9D1D6">A nonrandomized controlled trial of the AlpineAI Listener Tool in routine outpatient psychiatry at Psychiatrie St. Gallen.</p>
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: #233445; color: #9FD1CA; font-size: 14px; font-weight: 600"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #9FD1CA"></span>Data collection ongoing · results pending</span>
+<div style="display: flex; flex-direction: column; gap: 0px; padding-top: 8px">
+<a href="https://clinicaltrials.gov/study/NCT07777224" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #FFFFFF; font-weight: 500">Study registration · ClinicalTrials.gov NCT07777224 <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></a>
+<a href="https://preprints.jmir.org/preprint/111815" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #FFFFFF; font-weight: 500">Protocol preprint · JMIR Preprints <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></a>
+<span style="font-size: 13px; color: #A9B4BC">Preprint not yet peer reviewed · peer-reviewed protocol in revision</span>
+</div>
+</div>
+<div style="flex: 1 1 460px; min-width: 0; background: #FFFFFF; color: #14212F; border-radius: 8px; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #4D5966; font-weight: 600">Study design at a glance</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center">
+<span style="flex: 1 1 130px; font-size: 14px; font-weight: 600">Scribe group</span>
+<div style="flex: 4 1 260px; display: flex; gap: 6px; min-width: 0">
+<span style="flex: 1 1 0; min-width: 0; background: #E9ECEA; border-radius: 4px; padding: 10px 12px; font-size: 13px">Baseline · usual care</span>
+<span style="flex: 1.4 1 0; min-width: 0; background: #1D5E5A; color: #FFFFFF; border-radius: 4px; padding: 10px 12px; font-size: 13px; font-weight: 500">With AI ambient scribe</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center">
+<span style="flex: 1 1 130px; font-size: 14px; font-weight: 600">Control group</span>
+<div style="flex: 4 1 260px; display: flex; gap: 6px; min-width: 0">
+<span style="flex: 1 1 0; min-width: 0; background: #E9ECEA; border-radius: 4px; padding: 10px 12px; font-size: 13px">Baseline · usual care</span>
+<span style="flex: 1.4 1 0; min-width: 0; background: #E9ECEA; border-radius: 4px; padding: 10px 12px; font-size: 13px">Usual documentation</span>
+</div>
+</div>
+<p style="margin: 0; padding-top: 10px; border-top: 1px solid #E9ECEA; font-size: 14px; color: #4D5966">Outcomes: documentation time · documentation quality (blinded PDQI-9) · alliance and empathy (WAI-SR, CARE) · clinician burnout (BAT)</p>
+<a href="./research.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #1D5E5A; font-weight: 600">Read the study overview <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+</section>
+
+<section id="publications" style="background: #FFFFFF; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 48px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; color: #8A5A3F">Publications &amp; outputs</p>
+<h2 style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(30px, 3.2vw, 42px); line-height: 1.12; font-weight: 500">Open science, from protocol to results.</h2>
+<p style="margin: 0; color: #2F3B48">The trial is registered and its protocol published before any results are in.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 15px">
+<a href="#orcid" style="display: inline-flex; align-items: center; min-height: 44px; color: #14212F; font-weight: 600">ORCID</a>
+<a href="#scholar" style="display: inline-flex; align-items: center; min-height: 44px; color: #14212F; font-weight: 600">Google Scholar</a>
+</div>
+</div>
+<ol style="flex: 2 1 560px; min-width: 0; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<li style="display: flex; flex-wrap: wrap; gap: 6px 24px; padding: 22px 0; border-top: 1px solid #DCE1DE">
+<span style="flex: 0 0 132px; font-size: 13px; font-weight: 600; color: #4D5966; text-transform: uppercase; letter-spacing: 0.06em">2026 · Protocol</span>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 19px; line-height: 1.35">Evaluating the Use of an Artificial Intelligence Ambient Scribe in a Swiss Psychiatric Clinic: Protocol for a Nonrandomized Controlled Trial</span>
+<span style="font-size: 14px; color: #4D5966">JMIR Research Protocols · under peer review · DOI to follow</span>
+</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; gap: 6px 24px; padding: 22px 0; border-top: 1px solid #DCE1DE">
+<span style="flex: 0 0 132px; font-size: 13px; font-weight: 600; color: #4D5966; text-transform: uppercase; letter-spacing: 0.06em">2026 · Preprint</span>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<a href="https://preprints.jmir.org/preprint/111815" style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 19px; line-height: 1.35; color: #14212F">Protocol preprint: efficiency, documentation quality and therapeutic alliance</a>
+<span style="font-size: 14px; color: #4D5966">JMIR Preprints · 111815 · not peer reviewed</span>
+</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; gap: 6px 24px; padding: 22px 0; border-top: 1px solid #DCE1DE">
+<span style="flex: 0 0 132px; font-size: 13px; font-weight: 600; color: #4D5966; text-transform: uppercase; letter-spacing: 0.06em">2026 · Registry</span>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<a href="https://clinicaltrials.gov/study/NCT07777224" style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 19px; line-height: 1.35; color: #14212F">AI Ambient Scribe in Psychiatry</a>
+<span style="font-size: 14px; color: #4D5966">ClinicalTrials.gov · NCT07777224</span>
+</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; gap: 6px 24px; padding: 22px 0; border-top: 1px solid #DCE1DE">
+<span style="flex: 0 0 132px; font-size: 13px; font-weight: 600; color: #4D5966; text-transform: uppercase; letter-spacing: 0.06em">In preparation</span>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 19px; line-height: 1.35">Ambient AI Scribes in Psychiatry: a proposed practice framework</span>
+<span style="font-size: 14px; color: #4D5966">Six recommendations to protect clinical skill and quality of care</span>
+</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; gap: 6px 24px; padding: 22px 0; border-top: 1px solid #DCE1DE; border-bottom: 1px solid #DCE1DE">
+<span style="flex: 0 0 132px; font-size: 13px; font-weight: 600; color: #4D5966; text-transform: uppercase; letter-spacing: 0.06em">2027 · Planned</span>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 19px; line-height: 1.35">Three results papers: efficiency, documentation quality, therapeutic relationship</span>
+<span style="font-size: 14px; color: #4D5966">Follow on LinkedIn to hear when they are published</span>
+</div>
+</li>
+</ol>
+</div>
+</section>
+
+<section id="collaborate" style="padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 48px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
+<p style="margin: 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; color: #8A5A3F">Speaking &amp; collaboration</p>
+<h2 style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(30px, 3.2vw, 42px); line-height: 1.12; font-weight: 500">Questions beyond efficiency.</h2>
+<p style="margin: 0; color: #2F3B48; font-size: 17px">I combine daily clinical work, leadership in an outpatient department and hands-on experience running an AI trial across a multi-site psychiatric clinic.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px">
+<span style="padding: 7px 14px; border-radius: 999px; background: #E4EFED; color: #1D5E5A; font-size: 14px; font-weight: 500">Clinical skills &amp; deskilling</span>
+<span style="padding: 7px 14px; border-radius: 999px; background: #E4EFED; color: #1D5E5A; font-size: 14px; font-weight: 500">Documentation quality</span>
+<span style="padding: 7px 14px; border-radius: 999px; background: #E4EFED; color: #1D5E5A; font-size: 14px; font-weight: 500">Therapeutic relationship</span>
+<span style="padding: 7px 14px; border-radius: 999px; background: #E4EFED; color: #1D5E5A; font-size: 14px; font-weight: 500">Responsible implementation</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<div style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 19px; font-weight: 600">Clinics &amp; health systems</h3>
+<p style="margin: 0; color: #2F3B48">Evaluating and implementing AI documentation tools: study design, workflows, clinician adoption and patient safety.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 19px; font-weight: 600">Researchers</h3>
+<p style="margin: 0; color: #2F3B48">Collaboration on ambient AI, documentation quality and the therapeutic relationship in mental health care.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 19px; font-weight: 600">Conferences &amp; teams</h3>
+<p style="margin: 0; color: #2F3B48">Talks and workshops on AI in psychiatry, from the evidence to everyday practice.</p>
+</div>
+</div>
+<div>
+<a href="./contact.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 24px; background: #1D5E5A; color: #FFFFFF; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 500">Start a conversation <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+</section>
+
+<section id="about" style="background: #FFFFFF; border-top: 1px solid #DCE1DE; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 48px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px 72px">
+<div style="flex: 3 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; color: #8A5A3F">About</p>
+<h2 style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(30px, 3.2vw, 42px); line-height: 1.12; font-weight: 500">Clinical work informs the questions I ask.</h2>
+<p style="margin: 0; color: #2F3B48; font-size: 17px">I studied medicine at the University of Ljubljana and practise psychiatry in Eastern Switzerland. At Psychiatrie St. Gallen I work as acting senior physician in the outpatient department in Wattwil, which I headed in 2026, and I am part of the clinic's digital transformation team. Alongside my specialist training, I am completing a PhD at the University of St. Gallen on AI ambient scribing in psychiatric care.</p>
+<p style="margin: 0; color: #2F3B48; font-size: 17px">What drives me: psychiatry can get better with AI, but only if we measure what it does to patients, to clinicians and to the relationship between them.</p>
+<a href="./about.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #14212F; font-weight: 600">More about me <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+</div>
+<dl style="flex: 2 1 340px; min-width: 0; margin: 0; display: flex; flex-direction: column; border-top: 1px solid #DCE1DE">
+<div style="display: flex; flex-wrap: wrap; gap: 2px 16px; padding: 14px 0; border-bottom: 1px solid #DCE1DE">
+<dt style="flex: 0 0 110px; font-size: 13px; color: #4D5966; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px">Clinical</dt>
+<dd style="flex: 1 1 200px; margin: 0">Acting senior physician, Psychiatrie St. Gallen</dd>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 2px 16px; padding: 14px 0; border-bottom: 1px solid #DCE1DE">
+<dt style="flex: 0 0 110px; font-size: 13px; color: #4D5966; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px">Research</dt>
+<dd style="flex: 1 1 200px; margin: 0">PhD candidate, University of St. Gallen (HSG)</dd>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 2px 16px; padding: 14px 0; border-bottom: 1px solid #DCE1DE">
+<dt style="flex: 0 0 110px; font-size: 13px; color: #4D5966; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px">Digital</dt>
+<dd style="flex: 1 1 200px; margin: 0">Digital Transformation team, Psychiatrie St. Gallen</dd>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 2px 16px; padding: 14px 0; border-bottom: 1px solid #DCE1DE">
+<dt style="flex: 0 0 110px; font-size: 13px; color: #4D5966; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px">Profession</dt>
+<dd style="flex: 1 1 200px; margin: 0">Co-president, VAPZ</dd>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 2px 16px; padding: 14px 0; border-bottom: 1px solid #DCE1DE">
+<dt style="flex: 0 0 110px; font-size: 13px; color: #4D5966; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px">Education</dt>
+<dd style="flex: 1 1 200px; margin: 0">Medical degree, University of Ljubljana</dd>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 2px 16px; padding: 14px 0; border-bottom: 1px solid #DCE1DE">
+<dt style="flex: 0 0 110px; font-size: 13px; color: #4D5966; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px">Languages</dt>
+<dd style="flex: 1 1 200px; margin: 0">Slovenian, English, German</dd>
+</div>
+</dl>
+</div>
+</section>
+
+<section id="courses" style="background: #E4EFED; padding: clamp(48px, 6vw, 72px) clamp(20px, 5vw, 48px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 24px 64px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; color: #8A5A3F">For international doctors</p>
+<h2 style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(26px, 2.6vw, 34px); line-height: 1.15; font-weight: 500">Swiss Psychiatry Entry Roadmap</h2>
+<p style="margin: 0; color: #2F3B48">A four-session webinar for doctors and medical students planning a career in Swiss psychiatry: the practical roadmap I wish I had when I moved here. Separate online courses are in development.</p>
+</div>
+<a href="./courses.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 24px; border: 1px solid #14212F; color: #14212F; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 500">Explore the roadmap <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+</div>
+</section>
+
+<section id="contact" style="padding: clamp(64px, 8vw, 112px) clamp(20px, 5vw, 48px)">
+<div style="max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px">
+<h2 style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(32px, 3.8vw, 50px); line-height: 1.1; font-weight: 500; letter-spacing: -0.035em">Let's connect research and practice.</h2>
+<p style="margin: 0; color: #2F3B48; font-size: 18px; max-width: 620px">For research collaboration, implementation projects, speaking enquiries or roles in digital health.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; padding-top: 8px">
+<a href="./contact.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 24px; background: #1D5E5A; color: #FFFFFF; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 500">Send a message</a>
+<a href="https://www.linkedin.com/" style="display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 24px; border: 1px solid #14212F; color: #14212F; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 500">LinkedIn <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></a>
+</div>
+</div>
+</section>
+
+<!-- SITE FOOTER (large, home page only) -->
+<footer style="background: #14212F; color: #C9D1D6; padding: 48px clamp(20px, 5vw, 48px) 36px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-wrap: wrap; gap: 24px 48px; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 22px; font-weight: 600; color: #FFFFFF">Dr. med. Maja Dobelsek</span>
+<span style="font-size: 14px">Personal professional website · not a clinical service</span>
+</div>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 0px 24px; font-size: 15px">
+<a href="./research.html" style="color: #F2F4F3; text-decoration: none; display: inline-block; padding: 12px 0">Research</a>
+<a href="./articles/" style="color: #F2F4F3; text-decoration: none; display: inline-block; padding: 12px 0">Articles</a>
+<a href="./speaking.html" style="color: #F2F4F3; text-decoration: none; display: inline-block; padding: 12px 0">Speaking</a>
+<a href="./about.html" style="color: #F2F4F3; text-decoration: none; display: inline-block; padding: 12px 0">About</a>
+<a href="./courses.html" style="color: #F2F4F3; text-decoration: none; display: inline-block; padding: 12px 0">Courses</a>
+<a href="https://www.linkedin.com/" style="color: #F2F4F3; text-decoration: none; display: inline-block; padding: 12px 0">LinkedIn</a>
+<a href="#orcid" style="color: #F2F4F3; text-decoration: none; display: inline-block; padding: 12px 0">ORCID</a>
+<a href="#scholar" style="color: #F2F4F3; text-decoration: none; display: inline-block; padding: 12px 0">Google Scholar</a>
+</nav>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding-top: 20px; border-top: 1px solid #3A4757; font-size: 13px">
+<span>© 2026 Dr. med. Maja Dobelsek. Views are my own, not those of my employer.</span>
+<span style="display: flex; gap: 20px"><a href="./impressum.html" style="color: #C9D1D6">Impressum</a><a href="./datenschutz.html" style="color: #C9D1D6">Datenschutz</a></span>
+</div>
+</div>
+</footer>
+
+</div>
+</body>
+</html>
