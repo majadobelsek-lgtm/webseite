@@ -52,17 +52,20 @@
 </div>
 </div>
 
-<!-- FORM: not connected yet (static site). Needs a form service before launch, see CLAUDE.md. -->
-<form style="flex: 1 1 480px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 8px; padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 18px">
+<!-- CONTACT FORM: sends via Formspree (form mzeeqnek, delivers to Maja's Gmail). Script at the end of this page shows the result inline. -->
+<form id="contact-form" action="https://formspree.io/f/mzeeqnek" method="POST" style="flex: 1 1 480px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 8px; padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 18px">
+<input type="hidden" name="_subject" value="New message via majadobelsek.com">
+<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden">
 <div style="display: flex; flex-wrap: wrap; gap: 18px">
 <label for="c-name" style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Name<input id="c-name" name="name" type="text" autocomplete="name" required style="min-height: 48px; padding: 0 14px; border: 1px solid #A9B4BC; border-radius: 6px; font-size: 16px; font-family: inherit; color: #14212F; background: #FFFFFF"></label>
 <label for="c-email" style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Email<input id="c-email" name="email" type="email" autocomplete="email" required style="min-height: 48px; padding: 0 14px; border: 1px solid #A9B4BC; border-radius: 6px; font-size: 16px; font-family: inherit; color: #14212F; background: #FFFFFF"></label>
 </div>
-<label for="c-org" style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Organisation <span style="font-weight: 400; color: #4D5966">(optional)</span><input id="c-org" name="organisation" type="text" autocomplete="organization" style="min-height: 48px; padding: 0 14px; border: 1px solid #A9B4BC; border-radius: 6px; font-size: 16px; font-family: inherit; color: #14212F; background: #FFFFFF"></label>
+<label for="c-org" style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500"><span>Organisation <span style="font-weight: 400; color: #4D5966">(optional)</span></span><input id="c-org" name="organisation" type="text" autocomplete="organization" style="min-height: 48px; padding: 0 14px; border: 1px solid #A9B4BC; border-radius: 6px; font-size: 16px; font-family: inherit; color: #14212F; background: #FFFFFF"></label>
 <label for="c-topic" style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Topic<select id="c-topic" name="topic" style="min-height: 48px; padding: 0 12px; border: 1px solid #A9B4BC; border-radius: 6px; font-size: 16px; font-family: inherit; color: #14212F; background: #FFFFFF"><option>Research collaboration</option><option>Implementation project</option><option>Speaking invitation</option><option>Roles and opportunities</option><!-- COURSES HIDDEN until the course page is ready: <option>Swiss Psychiatry Entry Roadmap</option> --><option>Something else</option></select></label>
 <label for="c-msg" style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Message<textarea id="c-msg" name="message" rows="6" required style="padding: 12px 14px; border: 1px solid #A9B4BC; border-radius: 6px; font-size: 16px; font-family: inherit; color: #14212F; background: #FFFFFF; resize: vertical"></textarea></label>
-<label for="c-consent" style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: #2F3B48"><input id="c-consent" name="consent" type="checkbox" required style="width: 20px; height: 20px; margin: 2px 0 0 0; flex: 0 0 20px">I agree that my details are used to answer my enquiry, as described in the <a href="./datenschutz.html" style="color: #1D5E5A">privacy policy</a>.</label>
-<button type="button" style="align-self: flex-start; min-height: 50px; padding: 0 28px; border: none; border-radius: 6px; background: #1D5E5A; color: #FFFFFF; font-size: 15px; font-weight: 500; font-family: inherit; cursor: pointer">Send message</button>
+<label for="c-consent" style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: #2F3B48"><input id="c-consent" name="consent" type="checkbox" required style="width: 20px; height: 20px; margin: 2px 0 0 0; flex: 0 0 20px"><span>I agree that my details are used to answer my enquiry, as described in the <a href="./datenschutz.html" style="color: #1D5E5A">privacy policy</a>.</span></label>
+<button type="submit" style="align-self: flex-start; min-height: 50px; padding: 0 28px; border: none; border-radius: 6px; background: #1D5E5A; color: #FFFFFF; font-size: 15px; font-weight: 500; font-family: inherit; cursor: pointer">Send message</button>
+<p id="contact-status" role="status" aria-live="polite" style="margin: 0; font-size: 15px; color: #1D5E5A"></p>
 </form>
 </div>
 </section>
@@ -77,5 +80,32 @@
 </footer>
 
 </div>
+<script>
+// Contact form: send to Formspree without leaving the page, then show a short confirmation.
+(function () {
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('contact-status');
+  if (!form || !window.fetch) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var button = form.querySelector('button[type="submit"]');
+    button.disabled = true;
+    status.style.color = '#4D5966';
+    status.textContent = 'Sending…';
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error();
+        form.reset();
+        status.style.color = '#1D5E5A';
+        status.textContent = 'Thank you – your message has arrived. I will get back to you as soon as I can.';
+      })
+      .catch(function () {
+        status.style.color = '#7A3E2E';
+        status.textContent = 'Sorry, the message could not be sent. Please try again later or write to maja.dobelsek@gmail.com.';
+      })
+      .then(function () { button.disabled = false; });
+  });
+})();
+</script>
 </body>
 </html>

@@ -108,11 +108,11 @@ Keine Fotos anderer Personen ohne Majas ausdrückliche Bestätigung, dass sie di
 - [ ] Platzhalter in eckigen Klammern füllen: `grep -rn "\[" --include=*.html .` (Jahre, Datum, Kurs-Sessions, Preis, Sprache, Vorträge, Artikeltext)
 - [x] Links: LinkedIn, ORCID, CV-PDF (8.11.2026). Kein Google-Scholar-Profil (Links entfernt).
 - [x] Speaker-Kit: Porträt-Download + CV-Link (8.11.2026)
-- [ ] Formulare (Kontakt, Kurs-Interesse) mit einem Formulardienst verbinden (z. B. Formspree); bis dahin funktionieren
-      sie nicht. Datenschutzerklärung entsprechend ergänzen.
+- [x] Kontaktformular über Formspree angebunden (Endpoint `https://formspree.io/f/mzeeqnek`, Konto von Maja, Zustellung an Gmail), 8.11.2026.
+      Kurs-Interesse-Formular auf der (versteckten) Kursseite ist noch NICHT angebunden (soll später über Wix laufen).
 - Newsletter-Band am 8.11.2026 entfernt (kein Newsletter geplant). Der alte Block steht im Git-Verlauf, falls er zurückkommen soll.
 - [x] Impressum: Mindmorph GmbH, Grueben 592, 9243 Jonschwil, UID CHE-144.385.556 (Handelsregister, Stand Mai 2026); E-Mail privat (Gmail)
-- [ ] Datenschutz: Abschnitt Formulardienst ergänzen, sobald angebunden
+- [x] Datenschutz: Abschnitt zu Formspree ergänzt
 - Kursseite seit 8.11.2026 versteckt (Navigation, Footer, Startseiten-Band, Kontaktseite auskommentiert, Marker `COURSES HIDDEN`). Maja macht sie später fertig; Plan: Schaufenster hier, Kauf/Kurszugang über Wix (z. B. kurse.majadobelsek.com).
 - [ ] Deutsche Version. Der EN/DE-Umschalter ist im Header auskommentiert (`<!-- LANGUAGE SWITCH ... -->`); bei Einführung wieder einblenden.
 - [ ] `<meta name="robots" content="noindex">` auf allen Seiten entfernen, sobald die Seite fertig ist
