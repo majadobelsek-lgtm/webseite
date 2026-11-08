@@ -118,3 +118,8 @@ Keine Fotos anderer Personen ohne Majas ausdrückliche Bestätigung, dass sie di
 - Keine Tracking-, Analyse- oder externen Skripte einbauen, keine externen Schriften.
 - Keine Inhalte über Patient:innen; keine Aussagen im Namen der Psychiatrie St. Gallen.
 - Keine Studienergebnisse veröffentlichen, bevor Maja sie freigibt.
+
+## Hinweis: Bilder austauschen
+
+Browser und GitHub speichern Bilder zwischen. Wird ein Bild unter demselben Dateinamen ersetzt, an allen
+Verweisen die Versionsnummer erhöhen (`images/hero.jpg?v=2` → `?v=3`), sonst sehen Besucher:innen das alte Bild.
