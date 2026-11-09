@@ -3,7 +3,8 @@
 Persönliche, berufliche Website von Dr. med. Maja Dobelsek (Website: „Dr. med.“; im CV: „dr. med. (Univ. Ljubljana)“ – so von Maja entschieden) (Psychiatrie, KI, Forschung).
 Maja pflegt die Seite ausschliesslich über Claude: Sie schreibt Wünsche auf Deutsch, Claude setzt um.
 Maja codet und designt nicht selbst. Antworten an Maja immer auf Deutsch, kurz, ohne Technikjargon.
-Die Website-Texte sind auf Englisch (deutsche Version geplant, siehe Offene Punkte).
+Die Website ist zweisprachig: Englisch (Hauptsprache, Root) und Deutsch (Ordner `de/`). **Jede inhaltliche Änderung
+immer in BEIDEN Sprachen machen** (Maja schickt Änderungen meist nur in einer Sprache).
 
 ## Wie die Seite funktioniert
 
@@ -115,7 +116,7 @@ Keine Fotos anderer Personen ohne Majas ausdrückliche Bestätigung, dass sie di
 - [x] Impressum: Mindmorph GmbH, Grueben 592, 9243 Jonschwil, UID CHE-144.385.556 (Handelsregister, Stand Mai 2026); E-Mail privat (Gmail)
 - [x] Datenschutz: Abschnitt zu Formspree ergänzt
 - Kursseite seit 8.11.2026 versteckt (Navigation, Footer, Startseiten-Band, Kontaktseite auskommentiert, Marker `COURSES HIDDEN`). Maja macht sie später fertig; Plan: Schaufenster hier, Kauf/Kurszugang über Wix (z. B. kurse.majadobelsek.com).
-- [ ] Deutsche Version. Der EN/DE-Umschalter ist im Header auskommentiert (`<!-- LANGUAGE SWITCH ... -->`); bei Einführung wieder einblenden.
+- [x] Deutsche Version (9.11.2026), siehe Abschnitt Zweisprachigkeit.
 - [ ] `<meta name="robots" content="noindex">` auf allen Seiten entfernen, sobald die Seite fertig ist
 - [ ] Eigene Domain: Datei `CNAME` mit `majadobelsek.com`, DNS beim Domain-Anbieter, in GitHub Pages „Enforce HTTPS"
 
@@ -139,8 +140,17 @@ Verweisen die Versionsnummer erhöhen (`images/hero.jpg?v=2` → `?v=3`), sonst 
 - Der CV ist öffentlich: keine Telefonnummer, keine Wohnadresse, keine Referenzpersonen.
 - About-Seite und CV inhaltlich synchron halten.
 
-## Zweisprachigkeit (geplant, noch nicht umgesetzt)
+## Zweisprachigkeit (seit 9.11.2026)
 
-Deutsche Seiten in eigenem Ordner `de/` mit gleicher Struktur, EN/DE-Umschalter verlinkt die Gegenstücke,
-`hreflang`-Tags. Schweizer Rechtschreibung (ss), Sie-Form. Artikel nur auf Wunsch übersetzen.
-Erst umsetzen, wenn die englischen Inhalte fertig sind und Maja über Seitenauswahl und Hauptsprache entschieden hat.
+- Englisch = Hauptsprache im Root, Deutsch = gleiche Struktur unter `de/` (`de/index.html`, `de/articles/…`, gleiche Dateinamen/Slugs).
+- Alle Seiten inkl. beider Artikel sind übersetzt. Nicht übersetzt: Impressum/Datenschutz (nur Deutsch, im Root, von beiden Sprachen verlinkt),
+  Lebenslauf (nur Englisch, im DE-Button als „PDF, Englisch“ gekennzeichnet), Literaturangaben und offizielle Titel von Publikationen.
+- Begriffe: „Ambient Scribe“ bleibt Englisch (z. B. „KI-Ambient-Scribe“). Schweizer Rechtschreibung (ss, «»), Sie-Form,
+  gendern mit Doppelpunkt (Kliniker:innen, Patient:innen).
+- Sprachumschalter EN/DE im Header verlinkt jeweils dieselbe Seite in der anderen Sprache. Im `<head>` stehen
+  `hreflang`-Links (absolut auf https://majadobelsek.com/…).
+- Pfade in `de/`: gemeinsame Ressourcen liegen eine Ebene höher (`../css/`, `../images/`, `../cv/`, `../impressum.html`; in `de/articles/` entsprechend `../../`).
+- Script-Texte sind mitübersetzt: Kontaktformular (`de/contact.html`, Betreff „… (DE)“) und im Scribe-Artikel
+  (Workflow-Labels, PDSQI-8-Kriterien, Buttons).
+- Neuer Artikel: beide Sprachfassungen anlegen und in beiden Artikelübersichten eintragen (oder Maja fragen, ob nur eine Sprache).
+- Kursseite: noch keine deutsche Fassung (Seite ist ohnehin versteckt).
