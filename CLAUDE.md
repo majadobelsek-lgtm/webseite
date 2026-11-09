@@ -118,7 +118,7 @@ Keine Fotos anderer Personen ohne Majas ausdrückliche Bestätigung, dass sie di
 - Kursseite seit 8.11.2026 versteckt (Navigation, Footer, Startseiten-Band, Kontaktseite auskommentiert, Marker `COURSES HIDDEN`). Maja macht sie später fertig; Plan: Schaufenster hier, Kauf/Kurszugang über Wix (z. B. kurse.majadobelsek.com).
 - [x] Deutsche Version (9.11.2026), siehe Abschnitt Zweisprachigkeit.
 - [x] `noindex` entfernt (9.11.2026), ausser auf der versteckten `courses.html` (beim Freischalten der Kursseite dort auch entfernen)
-- [ ] Eigene Domain: Datei `CNAME` mit `majadobelsek.com`, DNS beim Domain-Anbieter, in GitHub Pages „Enforce HTTPS"
+- [x] Eigene Domain majadobelsek.com live (9.11.2026): Domain bei Wix gekauft, DNS bei Wix (A-Records GitHub Pages, CNAME www → majadobelsek-lgtm.github.io), Custom Domain in GitHub Pages eingetragen. Wix-Abo erst kündigen, wenn alles stabil läuft; Domain-Verlängerung bei Wix behalten.
 
 ## Was Claude nicht tun soll
 
