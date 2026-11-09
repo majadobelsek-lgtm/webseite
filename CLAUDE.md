@@ -139,12 +139,14 @@ Verweisen die Versionsnummer erhöhen (`images/hero.jpg?v=2` → `?v=3`), sonst 
   von `file:///…/cv/cv.html`. Ziel: 2 Seiten.
 - Der CV ist öffentlich: keine Telefonnummer, keine Wohnadresse, keine Referenzpersonen.
 - About-Seite und CV inhaltlich synchron halten.
+- Deutsche Fassung: `cv/cv-de.html` → `cv/Maja-Dobelsek-Lebenslauf.pdf` (verlinkt auf `de/about.html` und `de/speaking.html`).
+  Bei Änderungen beide Fassungen anpassen und beide PDFs neu erzeugen.
 
 ## Zweisprachigkeit (seit 9.11.2026)
 
 - Englisch = Hauptsprache im Root, Deutsch = gleiche Struktur unter `de/` (`de/index.html`, `de/articles/…`, gleiche Dateinamen/Slugs).
 - Alle Seiten inkl. beider Artikel sind übersetzt. Nicht übersetzt: Impressum/Datenschutz (nur Deutsch, im Root, von beiden Sprachen verlinkt),
-  Lebenslauf (nur Englisch, im DE-Button als „PDF, Englisch“ gekennzeichnet), Literaturangaben und offizielle Titel von Publikationen.
+  Literaturangaben und offizielle Titel von Publikationen.
 - Begriffe: „Ambient Scribe“ bleibt Englisch (z. B. „KI-Ambient-Scribe“). Schweizer Rechtschreibung (ss, «»), Sie-Form,
   gendern mit Doppelpunkt (Kliniker:innen, Patient:innen).
 - Sprachumschalter EN/DE im Header verlinkt jeweils dieselbe Seite in der anderen Sprache. Im `<head>` stehen
