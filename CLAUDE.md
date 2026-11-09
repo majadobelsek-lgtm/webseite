@@ -123,7 +123,9 @@ Keine Fotos anderer Personen ohne Majas ausdrückliche Bestätigung, dass sie di
 ## Was Claude nicht tun soll
 
 - Nichts direkt pushen, ohne dass Maja die Vorschau gesehen hat (ausser sie sagt es ausdrücklich).
-- Keine Tracking-, Analyse- oder externen Skripte einbauen, keine externen Schriften.
+- Keine Tracking-, Analyse- oder externen Skripte einbauen, keine externen Schriften. Einzige Ausnahme (von Maja gewünscht, 9.11.2026):
+  Besucherzählung mit GoatCounter (cookielos, Konto `majadobelsek`, Statistik unter https://majadobelsek.goatcounter.com).
+  Das Script-Tag `data-goatcounter=…` steht vor `</body>` auf jeder Seite – bei neuen Seiten mitkopieren. Datenschutz-Abschnitt dazu in `datenschutz.html`.
 - Keine Inhalte über Patient:innen; keine Aussagen im Namen der Psychiatrie St. Gallen.
 - Keine Studienergebnisse veröffentlichen, bevor Maja sie freigibt.
 
