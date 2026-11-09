@@ -39,7 +39,7 @@ impressum.html, datenschutz.html   Rechtliches (Deutsch)
 404.html                    Fehlerseite (nutzt absolute Links "/", weil sie unter jeder URL erscheint)
 articles/index.html         Artikelübersicht
 articles/<slug>.html        Einzelne Artikel. Sonderfall: `ai-scribes-clinical-workflow.html` hat ein eigenes, interaktives Layout
-                            (eigenes Stylesheet im <head>, auf Website-Farben/-Schriften umgestellt; Script für Workflow-Animation und PDSQI-8-Selbsttest)
+                            (eigenes Stylesheet im <head>, auf Website-Farben/-Schriften umgestellt; Script für Workflow-Animation; PDSQI-8 als statische Bewertungsanleitung)
 css/site.css                Gemeinsame Basis-Styles (Body, Fokus, Mobile-Hero)
 css/fonts.css, fonts/       Selbst gehostete Schriften (DSGVO: kein Google-Fonts-Abruf)
 images/                     Bilder (hero.jpg, portrait.jpg, articles/<slug>.jpg)
@@ -153,6 +153,6 @@ Verweisen die Versionsnummer erhöhen (`images/hero.jpg?v=2` → `?v=3`), sonst 
   `hreflang`-Links (absolut auf https://majadobelsek.com/…).
 - Pfade in `de/`: gemeinsame Ressourcen liegen eine Ebene höher (`../css/`, `../images/`, `../cv/`, `../impressum.html`; in `de/articles/` entsprechend `../../`).
 - Script-Texte sind mitübersetzt: Kontaktformular (`de/contact.html`, Betreff „… (DE)“) und im Scribe-Artikel
-  (Workflow-Labels, PDSQI-8-Kriterien, Buttons).
+  (Workflow-Labels, Buttons).
 - Neuer Artikel: beide Sprachfassungen anlegen und in beiden Artikelübersichten eintragen (oder Maja fragen, ob nur eine Sprache).
 - Kursseite: noch keine deutsche Fassung (Seite ist ohnehin versteckt).

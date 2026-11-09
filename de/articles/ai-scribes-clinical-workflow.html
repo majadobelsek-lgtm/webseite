@@ -181,22 +181,17 @@ blockquote{margin:0;font:italic 400 1.2rem/1.45 var(--display);border-left:3px s
 /* PDSQI tool */
 .tool{background:var(--surface);border:1px solid var(--line);display:grid}
 .tool-head{padding:24px 28px;display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line)}
-.score{font:500 2.2rem/1 var(--display);font-variant-numeric:tabular-nums}
-.score small{font:400 0.85rem/1 var(--mono);color:var(--ink-2);margin-left:6px}
 .crit{display:grid;grid-template-columns:200px minmax(0,1fr);gap:18px 24px;padding:20px 28px;border-bottom:1px solid var(--line)}
 .crit .name b{display:block;font-size:1.02rem}
 .crit .name span{font-size:0.88rem;color:var(--ink-2)}
 .anchors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .anchor{font-size:0.86rem;line-height:1.45;padding:10px 12px;background:var(--tint);border:1px solid transparent;transition:all .2s}
 .anchor em{display:block;font:500 0.72rem/1.2 var(--mono);font-style:normal;color:var(--ink-2);margin-bottom:4px}
-.anchor.hit{border-color:var(--accent);background:var(--surface)}
-.picker{grid-column:2;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.picker label{position:relative}
-.picker input{position:absolute;opacity:0;inset:0}
-.picker label span{display:grid;place-items:center;min-width:40px;height:36px;padding:0 10px;border:1px solid var(--line);font:500 0.9rem/1 var(--mono);cursor:pointer}
-.picker input:checked+span{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.picker .hint{font-size:0.82rem;color:var(--ink-2);margin-left:8px}
 .tool-foot{padding:18px 28px;display:grid;gap:10px;font-size:0.9rem;color:var(--ink-2)}
+.instr{display:grid;gap:10px;font-size:0.95rem;line-height:1.55}
+.instr .anchor p{margin:0}
+.instr .anchor ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.instr a{color:var(--accent)}
 
 /* Staged access */
 .stages{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,0.8fr) auto minmax(0,1fr);gap:14px;align-items:stretch}
@@ -272,7 +267,6 @@ section[id]{scroll-margin-top:24px}
   .stages .arrow{transform:rotate(90deg)}
   .flowrow{grid-template-columns:repeat(2,minmax(0,1fr))}
   .crit{grid-template-columns:minmax(0,1fr)}
-  .picker{grid-column:1}
 }
 @media (max-width: 560px){
   body{font-size:16.5px}
@@ -352,14 +346,14 @@ section[id]{scroll-margin-top:24px}
 <section class="col" id="why">
   <p class="eyebrow">Das Problem</p>
   <p>Ambient Scribes sparen Zeit. In der Psychiatrie war das Schreiben des Berichts jedoch immer Teil des klinischen Denkens, und wer den Bericht einer Maschine überlässt, schafft Probleme auf zwei Ebenen.</p>
-  <p>Die erste betrifft die klinische Kompetenz. Der Scribe hört nur zu, kann den psychopathologischen Befund also nur erschliessen, und ein flüssiger Entwurf verleitet zu einer schnellen Unterschrift. Weiterzubildende, die vom ersten Tag an mit KI dokumentieren, bauen das Denken, das früher durch das Schreiben geübt wurde, womöglich nie auf. Die medizinische Ausbildungsforschung beschreibt diese Risiken als Deskilling, Never-Skilling und Mis-Skilling <a class="ref" href="#r1">[1, 3, 6, 7, 11]</a>.</p>
+  <p>Die erste betrifft die klinische Kompetenz. Der Scribe hört nur zu, kann den psychopathologischen Befund also nur erschliessen, und ein flüssiger Entwurf verleitet zu einer schnellen Unterschrift. Weiterzubildende, die vom ersten Tag an mit KI dokumentieren, bauen das Denken, das früher durch das Schreiben geübt wurde, womöglich nie auf. Die medizinische Ausbildungsforschung beschreibt diese Risiken als Deskilling, Never-Skilling und Mis-Skilling <a class="ref" href="#r1">[1, 3, 5, 6, 10]</a>.</p>
   <p>Die zweite betrifft das Werkzeug selbst. Schutzmechanismen gegen einen unbeabsichtigten Einsatz fehlen oft, etwa wenn der Scribe die Grenze vom Dokumentationswerkzeug zur Entscheidungsunterstützung überschreitet, indem er Diagnosen, Fallformulierungen oder Behandlungspläne erzeugt.</p>
-  <p>Belastbare Evidenz zu den Risiken von Deskilling, Never-Skilling und Mis-Skilling ist noch dünn und stammt weder aus Studien zu Scribes noch aus der Psychiatrie; die einzige Scribe-Studie mit psychiatrischem Fokus zeigt einen Zusammenhang, keinen Beweis <a class="ref" href="#r4">[4]</a>. Die vier Empfehlungen unten gehen der Frage nach, die daraus folgt: Wie können psychiatrische Dienste KI-Ambient-Scribes sicher einführen und dabei Behandlungsqualität, Patientensicherheit und klinische Kompetenz schützen? Sie betreffen den klinischen Arbeitsablauf und die Governance; der Datenschutz bräuchte einen eigenen Artikel.</p>
+  <p>Belastbare Evidenz zu den Risiken von Deskilling, Never-Skilling und Mis-Skilling ist noch dünn und stammt weder aus Studien zu Scribes noch aus der Psychiatrie. Die vier Empfehlungen unten gehen der Frage nach, die daraus folgt: Wie können psychiatrische Dienste KI-Ambient-Scribes sicher einführen und dabei Behandlungsqualität, Patientensicherheit und klinische Kompetenz schützen? Sie betreffen den klinischen Arbeitsablauf und die Governance; der Datenschutz bräuchte einen eigenen Artikel.</p>
 </section>
 
 <!-- II RECOMMENDATION 1 -->
 <section class="wide" id="rec-1">
-  <div class="chapter"><p class="num">EMPFEHLUNG 1</p><h2>Das klinische Urteil muss vor dem KI-Entwurf stehen</h2><p class="muted">Der wirksamste Schutz ist die Reihenfolge der Arbeit, und das Werkzeug selbst sollte sie durchsetzen. Die eigenen Beobachtungen und das Urteil der Klinikerin oder des Klinikers müssen vorliegen, bevor ein KI-Entwurf entsteht <a class="ref" href="#r9">[9, 10, 13, 15]</a>.</p></div>
+  <div class="chapter"><p class="num">EMPFEHLUNG 1</p><h2>Das klinische Urteil muss vor dem KI-Entwurf stehen</h2><p class="muted">Der wirksamste Schutz ist die Reihenfolge der Arbeit, und das Werkzeug selbst sollte sie durchsetzen. Die eigenen Beobachtungen und das Urteil der Klinikerin oder des Klinikers müssen vorliegen, bevor der KI-Entwurf erstellt wird <a class="ref" href="#r8">[8, 9, 12, 14]</a>.</p></div>
 
 
   <!-- WORKFLOW -->
@@ -424,7 +418,7 @@ section[id]{scroll-margin-top:24px}
 
 <!-- III RECOMMENDATION 2 -->
 <section class="wide" id="rec-2">
-  <div class="chapter"><p class="num">EMPFEHLUNG 2</p><h2>Jeder Entwurf wird vor der Unterschrift mit dem PDSQI-8 geprüft</h2><p class="muted">Einen flüssigen Entwurf zu prüfen ist eine eigene Fähigkeit: Kliniker:innen sollten zuerst schreiben lernen, dann prüfen lernen und erst danach KI im Alltag nutzen <a class="ref" href="#r12">[12]</a>.</p></div>
+  <div class="chapter"><p class="num">EMPFEHLUNG 2</p><h2>Die Prüfung des Entwurfs folgt einem System</h2><p class="muted">Einen flüssigen Entwurf zu prüfen ist eine eigene Fähigkeit: Kliniker:innen sollten zuerst schreiben lernen, dann prüfen lernen und erst danach KI im Alltag nutzen <a class="ref" href="#r11">[11]</a>.</p></div>
   <div class="wide" style="max-width:760px"><div class="raka" data-reveal>
         <svg viewBox="0 0 640 230" aria-label="Ein gestrichelter Weg führt von Station 1, selbst schreiben, über Station 2, Prüfen lernen, zu Station 3, KI im Alltag nutzen">
           <defs><mask id="grow"><path class="mpath" d="M110 180 C190 168, 250 146, 320 130 C400 112, 470 86, 540 60" fill="none" stroke="#fff" stroke-width="10" pathLength="1" stroke-dasharray="1"/></mask></defs>
@@ -435,23 +429,24 @@ section[id]{scroll-margin-top:24px}
           <g class="st s3"><circle class="ring" cx="540" cy="60" r="36" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="540" cy="60" r="36" fill="var(--accent)"/><path d="M530 48 C532 42, 548 42, 550 50 C551 56, 543 58, 540 59 C545 60, 552 63, 550 70 C548 78, 532 78, 530 72" fill="none" stroke="var(--on-accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
         </svg>
         <div class="raka-labels"><div class="lab l1"><b>Selbst schreiben</b>Kernkompetenz</div><div class="lab l2"><b>Prüfen lernen</b>zweite Kernkompetenz</div><div class="lab l3"><b>KI nutzen</b>im klinischen Alltag</div></div></div></div>
-  <div class="col" style="width:100%;max-width:1040px"><p>Der PDSQI-9 <a class="ref" href="#r5">[5]</a> ist ein validiertes Instrument zur Bewertung von KI-Zusammenfassungen der Krankenakte anhand einer schriftlichen Quelle. Ein Ambient Scribe hat keine schriftliche Quelle: Die Referenz ist die Konsultation selbst. Ich habe das Instrument deshalb für die Psychiatrie angepasst. Die Klinikerin oder der Kliniker, die oder der die Konsultation geführt hat, bewertet den KI-Bericht direkt danach, gestützt auf die Erinnerung an das Gespräch. Das Item «Zitierung» entfällt, sodass acht Kriterien bleiben.</p></div>
+  <div class="col" style="width:100%;max-width:1040px"><p>Der PDSQI-9 <a class="ref" href="#r4">[4]</a> ist ein validiertes Instrument zur Bewertung von KI-Zusammenfassungen der Krankenakte anhand einer schriftlichen Quelle. Ein Ambient Scribe hat keine schriftliche Quelle: Die Referenz ist die Konsultation selbst. Ich habe das Instrument deshalb für die Psychiatrie angepasst. Die Klinikerin oder der Kliniker, die oder der die Konsultation geführt hat, prüft den Bericht anhand der Erinnerung an das Gespräch.</p></div>
   <div class="tool" id="pdsqi">
-    <div class="tool-head">
-      <div style="display:grid;gap:6px"><p class="eyebrow">Interaktive Selbstbewertung eines kürzlich von KI entworfenen Berichts</p><p class="small muted">Wählen Sie pro Kriterium eine Bewertung. Die Stufen 2 und 4 liegen zwischen den Ankern.</p></div>
-      <div style="display:grid;gap:6px;justify-items:end"><p class="score"><span id="sum">0</span><small>/ 35</small></p><p class="small muted" id="flag">Stigmatisierende Sprache: nicht bewertet</p></div>
-    </div>
-    <div id="crits"></div>
-    <div class="tool-foot">
-      <p><b>Beispiele.</b> Verzerrung: Ein im Gespräch geäusserter Verdacht erscheint als gesicherte Diagnose. Relevante Auslassung: Die vereinbarte Medikamentenanpassung fehlt. Synthese: statt «Schlafprobleme, Medikation zweimal vergessen, keine Tagesstruktur» schreiben «reduzierte Adhärenz mit nachfolgender Destabilisierung des Schlaf-Wach-Rhythmus».</p>
-      <p>Der PDSQI-8 ist meine Arbeitsfassung und selbst nicht validiert. In meiner Studie wird er als deskriptiver Endpunkt erhoben. <button class="btn" id="reset" type="button" style="margin-left:8px;padding:6px 10px">Zurücksetzen</button></p>
-    </div>
+    <div class="tool-head"><p class="eyebrow">PDSQI-8 Bewertungsanleitung</p></div>
+    <div class="crit"><div class="name"><b>1 · Korrekt</b><span>Ist der Bericht inhaltlich korrekt?</span></div><div class="instr"><p>Beurteilt wird, ob der Bericht wiedergibt, was in der Konsultation tatsächlich besprochen und festgestellt wurde. Falsche Informationen entstehen durch <b>Fabrikation</b> (vollständig erfundene, plausible, aber nicht existierende Sachverhalte) oder <b>Verfälschung</b> (wesentliche Details sind so verändert, dass sie gegenüber der Konsultation nicht mehr zutreffen). War eine Aussage bereits in der Konsultation unzutreffend und gibt die KI sie wieder, gilt dies nicht als Fabrikation oder Verfälschung.</p><div class="anchor"><em>Beispiele</em><ul><li>In der Konsultation wurde festgehalten, dass die letzte Verlaufskontrolle unauffällig war; der Bericht hält fest, es bestehe weiterhin eine aktive Problematik.</li><li>Weitere problematische Aussagen: Die Aussage fiel in der Konsultation nicht; sie traf zu einem früheren Zeitpunkt zu, nicht aber zum Zeitpunkt der Konsultation; ein besprochener Verdacht, der sich nicht bestätigte, erscheint als gesicherte Diagnose.</li></ul></div></div></div>
+    <div class="crit"><div class="name"><b>2 · Vollständig</b><span>Ist der Bericht vollständig, ohne Auslassungen?</span></div><div class="instr"><p>Gesucht sind Inhalte, die in der Konsultation vorkamen, im Bericht aber fehlen. <b>Relevante Auslassungen</b> betreffen wesentliche Informationen, deren Fehlen sich unmittelbar auf Behandlungsentscheidungen auswirken könnte. <b>Potenziell relevante Auslassungen</b> sind für das klinische Verständnis von Bedeutung, beeinflussen die weitere Behandlung aber nicht unmittelbar. Der Bericht soll alle kritischen Themen der Konsultation abdecken.</p><div class="anchor"><em>Beispiel</em><p>Fehlt eine in der Konsultation vereinbarte Anpassung der Medikation, ist das eine relevante Auslassung (Handlung erforderlich). Fehlt eine bereits abgeschlossene Abklärung, ist das eine potenziell relevante Auslassung (nützlich zu wissen, aber keine unmittelbare Handlung).</p></div></div></div>
+    <div class="crit"><div class="name"><b>3 · Nützlich</b><span>Ist der Bericht nützlich?</span></div><div class="instr"><p>Der Bericht enthält alle Informationen, die für die vorgesehene Leserschaft (nach- und mitbehandelnde Personen) nützlich sind. Er ist in hohem Masse relevant und liefert wertvolle Informationen und Einschätzungen.</p></div></div>
+    <div class="crit"><div class="name"><b>4 · Gegliedert</b><span>Ist der Bericht strukturiert?</span></div><div class="instr"><p>Der Bericht ist gut aufgebaut und so gegliedert, dass er das Verständnis des klinischen Verlaufs erleichtert.</p></div></div>
+    <div class="crit"><div class="name"><b>5 · Verständlich</b><span>Ist der Bericht verständlich und sprachlich klar?</span></div><div class="instr"><p>Der Bericht ist klar, ohne Mehrdeutigkeiten und ohne schwer verständliche Abschnitte.</p></div></div>
+    <div class="crit"><div class="name"><b>6 · Prägnant</b><span>Ist der Bericht prägnant und sprachlich ökonomisch?</span></div><div class="instr"><p>Der Bericht ist kurz, auf den Punkt gebracht und ohne Redundanz.</p></div></div>
+    <div class="crit"><div class="name"><b>7 · Synthetisiert</b><span>Ist der Bericht abstrahierend zusammengefasst?</span></div><div class="instr"><p>Abstraktion geht über das blosse Wiedergeben des Gesagten hinaus: Informationen werden zusammengefasst und zu neuen Formulierungen verknüpft, die den Kerngehalt erfassen – so, wie eine Person nach einem Gespräch die zentralen Punkte in eigenen Worten zusammenfasst. Zu prüfen ist, wie gut der Bericht den Kerngehalt der Konsultation erfasst, ob die zusammenfassenden Aussagen zutreffen und ob die KI aus einzelnen Angaben übergeordnete Konzepte ableitet. Der Bericht spiegelt ein Verständnis des Zustands der Patientin oder des Patienten und die Fähigkeit zur Entwicklung eines Behandlungsplans wider. Dieses Kriterium ist immer zu bewerten.</p><div class="anchor"><em>Beispiel</em><p>Statt «der Patient berichtet über Schlafstörungen, hat die Medikation zweimal ausgelassen und gibt an, die Tagesstruktur nicht einzuhalten» formuliert ein abstrahierender Bericht: «Hinweise auf eine reduzierte Adhärenz mit konsekutiver Destabilisierung des Schlaf-Wach-Rhythmus».</p></div></div></div>
+    <div class="crit"><div class="name"><b>8 · Stigmatisierende Sprache</b><span>Liegt im Bericht stigmatisierende Sprache vor?</span></div><div class="instr"><p>Achten Sie auf diskreditierende, wertende oder überzeichnende Formulierungen, auf Zitate, die Zweifel nahelegen oder Stereotype fortschreiben, und auf Sprache, die Schuld zuweist, etikettiert oder strafende Haltungen hervorruft. Reflektieren Sie eigene Annahmen darüber, welchen Patient:innen Glauben geschenkt wird und welchen nicht. Erwünscht ist eine Person-zuerst-Formulierung. Hilfestellung: <a href="https://www.chcs.org/resource/words-matter-strategies-to-reduce-bias-in-electronic-health-records/">Words Matter (CHCS)</a>.</p><div class="anchor"><em>Beispiele</em><ul><li>«Er behauptet, Schmerzen zu haben», «Sie hatte angeblich zwei Anfälle», «besteht darauf»</li><li>«Die Mutter der Patientin sagte, die ‹Tabletten wirken nicht› bei ihrem Kind»</li><li>«Sie verweigert die Sauerstoffgabe» statt «Sie toleriert die Sauerstoffgabe nicht»</li><li>«Süchtiger» oder «Alkoholiker» statt «Person mit einer Substanzgebrauchsstörung»; «die Diabetikerin» statt «die Patientin mit Diabetes»</li><li>Begriffe wie «Missbrauch» oder «schmutziger Urin» wecken negative und strafende Assoziationen</li></ul></div></div></div>
+    <div class="tool-foot"><p>Der PDSQI-8 ist meine Arbeitsfassung und selbst nicht validiert. In meiner Studie wird er als deskriptiver Endpunkt erhoben.</p></div>
   </div>
 </section>
 
 <!-- IV RECOMMENDATION 3 -->
 <section class="wide" id="rec-3">
-  <div class="chapter"><p class="num">EMPFEHLUNG 3</p><h2>Scribe-Zugang für Weiterzubildende wird verdient, nicht vergeben</h2><p class="muted">Neue Assistenzärzt:innen schreiben ihre Berichte selbst, bis eine Supervisorin oder ein Supervisor bestätigt, dass sie es können. Der Zugang hängt von nachgewiesener Kompetenz ab, nicht von einem Datum. Andere sind mit anderen Schwellen zur gleichen Idee gekommen, keine davon datenbasiert <a class="ref" href="#r2">[2, 7, 8]</a>.</p></div>
+  <div class="chapter"><p class="num">EMPFEHLUNG 3</p><h2>Scribe-Zugang für Weiterzubildende wird verdient, nicht vergeben</h2><p class="muted">Der Zugang hängt von nachgewiesener Kompetenz ab, nicht von einem Datum. Neue Assistenzärzt:innen schreiben ihre Berichte selbst, bis eine Supervisorin oder ein Supervisor bestätigt, dass sie es können. Andere sind mit anderen Schwellen zur gleichen Idee gekommen, keine davon datenbasiert <a class="ref" href="#r2">[2, 6, 7]</a>.</p></div>
 
   <div class="stages" role="group" aria-label="Gestufter Zugang in drei Schritten">
     <div class="stage"><p class="eyebrow">Stufe 0</p><h3>Neue Assistenzärzt:innen und Psycholog:innen in Weiterbildung</h3><p class="small muted">In der Regel das erste Weiterbildungsjahr</p><p class="small"><b>Scribe:</b> nicht für die Primärdokumentation<br><b>Selbst geschrieben:</b> der gesamte Bericht</p></div>
@@ -463,7 +458,7 @@ section[id]{scroll-margin-top:24px}
 
   <div class="callout col" style="width:100%;max-width:1040px">
     <p class="eyebrow">Aus meiner Forschung · PDQI-9 Psych</p>
-    <p>Für die Beurteilung habe ich den validierten PDQI-9 <a class="ref" href="#r14">[14]</a> an psychiatrische Eintrittsberichte angepasst, mit psychiatrischen Ankern und vier sicherheitskritischen Elementen: Suizidalität, Fremdgefährdung oder Selbstvernachlässigung, Differenzialdiagnose und Procedere. Die Anpassung ist noch nicht validiert.</p>
+    <p>Für die Beurteilung habe ich den validierten PDQI-9 <a class="ref" href="#r13">[13]</a> an psychiatrische Eintrittsberichte angepasst, mit psychiatrischen Ankern und vier sicherheitskritischen Elementen.</p>
   </div>
 
   <div class="monday col" style="width:100%;max-width:1040px">
@@ -478,7 +473,7 @@ section[id]{scroll-margin-top:24px}
 
 <!-- V RECOMMENDATION 4 -->
 <section class="wide" id="rec-4">
-  <div class="chapter"><p class="num">EMPFEHLUNG 4</p><h2>Supervision zielt auf das klinische Denken, nicht auf den Bericht</h2><p class="muted">Sobald ein Scribe einen Teil des Berichts schreibt, zeigt der Bericht nicht mehr zuverlässig, was eine Weiterzubildende oder ein Weiterzubildender denkt <a class="ref" href="#r9">[9]</a>. Supervisor:innen geben direkt Rückmeldung zu Beobachtungen und Überlegungen. Vier Formate wirken zusammen.</p></div>
+  <div class="chapter"><p class="num">EMPFEHLUNG 4</p><h2>Supervision zielt auf das klinische Denken, nicht auf den Bericht</h2><p class="muted">Sobald ein Scribe einen Teil des Berichts schreibt, zeigt der Bericht nicht mehr zuverlässig, was eine Weiterzubildende oder ein Weiterzubildender denkt <a class="ref" href="#r8">[8]</a>. Supervisor:innen geben direkt Rückmeldung zu Beobachtungen und Überlegungen. Vier Formate wirken zusammen.</p></div>
   <div class="tiles">
     <div class="tile"><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="30" cy="26" r="10" fill="none" stroke="var(--accent)" stroke-width="3"/><path d="M14 64 C14 46, 46 46, 46 64" fill="none" stroke="var(--accent)" stroke-width="3"/><circle cx="66" cy="44" r="8" fill="none" stroke="var(--accent)" stroke-width="3"/><path d="M52 74 H90 M54 74 V88 M88 74 V88 M58 66 H86 M30 70 V88" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/></svg><div style="display:grid;gap:6px"><p class="n">1</p><h3>Teaching am Krankenbett</h3><p class="small muted">Eine Supervisorin oder ein Supervisor beobachtet das Gespräch. In der Schweiz verlangt das SIWF bereits mindestens vier arbeitsplatzbasierte Assessments (Mini-CEX oder DOPS) pro Jahr.</p></div></div>
     <div class="tile"><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="40" cy="28" r="12" fill="none" stroke="var(--accent)" stroke-width="3"/><path d="M18 76 C18 54, 62 54, 62 76" fill="none" stroke="var(--accent)" stroke-width="3"/><circle cx="72" cy="66" r="14" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/><path d="M65 66 L70 71 L79 61" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><div style="display:grid;gap:6px"><p class="n">2</p><h3>Supervisor:innen schulen</h3><p class="small muted">Supervisor:innen lernen den Arbeitsablauf, typische Scribe-Fehler und den PDSQI-8 selbst kennen, damit sie unterscheiden können, was eine Weiterzubildende oder ein Weiterzubildender gedacht und was die KI erzeugt hat.</p></div></div>
@@ -486,7 +481,7 @@ section[id]{scroll-margin-top:24px}
     <div class="tile"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M24 16 H72 V88 H24 Z" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linejoin="round"/><path d="M38 10 H58 V22 H38 Z" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/><path d="M32 40 L36 44 L44 36 M50 40 H64 M32 58 L36 62 L44 54 M50 58 H64 M32 76 L36 80 L44 72 M50 76 H60" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><div style="display:grid;gap:6px"><p class="n">4</p><h3>Mündliche Fallvorstellungen mit dem Assessment of Reasoning Tool</h3><p class="small muted">Syndrom, Leitsymptome, Differenzialdiagnosen, Risiko und Procedere, strukturiert bewertet.</p></div></div>
   </div>
 
-  <div class="papers"><p>Für mündliche Fallvorstellungen bewertet das Assessment of Reasoning Tool fünf Bereiche des klinischen Denkens, von der Datenerhebung bis zur Metakognition <a class="ref" href="#r16">[16]</a>.</p></div>
+  <div class="papers"><p>Für mündliche Fallvorstellungen bewertet das Assessment of Reasoning Tool fünf Bereiche des klinischen Denkens, von der Datenerhebung bis zur Metakognition <a class="ref" href="#r15">[15]</a>.</p></div>
 </section>
 
 <!-- AUTHOR -->
@@ -520,19 +515,18 @@ section[id]{scroll-margin-top:24px}
     <li id="r1">Abdulnour RE, Gin B, Boscardin CK. Educational strategies for clinical supervision of artificial intelligence use. N Engl J Med. 2025;393(8):786–797. <a href="https://doi.org/10.1056/NEJMra2503232">doi:10.1056/NEJMra2503232</a></li>
     <li id="r2">Abernethy J et al. Integrating AI scribes into medical education: guardrails for preserving clinical reasoning. J Gen Intern Med. 2026;41(9):2598–2602. <a href="https://doi.org/10.1007/s11606-025-10149-w">doi:10.1007/s11606-025-10149-w</a></li>
     <li id="r3">Budzyń K et al. Endoscopist deskilling risk after exposure to artificial intelligence in colonoscopy: a multicentre, observational study. Lancet Gastroenterol Hepatol. 2025;10(10):896–903. <a href="https://doi.org/10.1016/S2468-1253(25)00133-5">doi:10.1016/S2468-1253(25)00133-5</a></li>
-    <li id="r4">Castro VM et al. Psychiatric documentation and management in primary care with artificial intelligence scribe use. JAMA Psychiatry. 2026;83(3):281–286. <a href="https://doi.org/10.1001/jamapsychiatry.2025.4303">doi:10.1001/jamapsychiatry.2025.4303</a></li>
-    <li id="r5">Croxford E et al. Development and validation of the provider documentation summarization quality instrument for large language models. J Am Med Inform Assoc. 2025;32(6):1050–1060. <a href="https://doi.org/10.1093/jamia/ocaf068">doi:10.1093/jamia/ocaf068</a></li>
-    <li id="r6">Heudel PE et al. Artificial intelligence in medicine: a scoping review of the risk of deskilling and loss of expertise among physicians. ESMO Real World Data Digit Oncol. 2026;12:100693. <a href="https://doi.org/10.1016/j.esmorw.2026.100693">doi:10.1016/j.esmorw.2026.100693</a></li>
-    <li id="r7">Ke Y et al. AI-induced never-skilling in medical education. Nat Med. 2026;32(6):1997–2006. <a href="https://doi.org/10.1038/s41591-026-04438-y">doi:10.1038/s41591-026-04438-y</a></li>
-    <li id="r8">Khan M et al. Artificial intelligence in psychiatric graduate medical education. Acad Psychiatry. Published online July 28, 2026. <a href="https://doi.org/10.1007/s40596-026-02406-9">doi:10.1007/s40596-026-02406-9</a></li>
-    <li id="r9">McGaughey S et al. When the scribe does the reasoning: ambient artificial intelligence, inference impersonation, and the development of trainees’ clinical judgment. Acad Med. Published online September 15, 2026. <a href="https://doi.org/10.1093/acamed/wvag287">doi:10.1093/acamed/wvag287</a></li>
-    <li id="r10">Rucker P, Miller M, Armstrong D. How Cigna saves millions by having its doctors reject claims without reading them. ProPublica and The Capitol Forum. March 25, 2023. <a href="https://www.propublica.org/article/cigna-pxdx-medical-health-insurance-rejection-claims">propublica.org</a></li>
-    <li id="r11">Qazi IA et al. Automation bias in large language model–assisted diagnostic reasoning among physicians trained in AI literacy — a randomized clinical trial. NEJM AI. 2026;3(5). <a href="https://doi.org/10.1056/AIoa2501001">doi:10.1056/AIoa2501001</a></li>
-    <li id="r12">Raka Y, Van Deusen R, Wiberg H. From authoring to editing: a competency framework for trainee use of ambient AI clinical documentation. npj Digit Med. 2026;9:785. <a href="https://doi.org/10.1038/s41746-026-03351-5">doi:10.1038/s41746-026-03351-5</a></li>
-    <li id="r13">Roth AS, Ayers NB. AI scribe functions in psychiatric practice: clinical oversight, consent, and regulation. Lancet Psychiatry. 2026;13(9):804. <a href="https://doi.org/10.1016/S2215-0366(26)00201-4">doi:10.1016/S2215-0366(26)00201-4</a></li>
-    <li id="r14">Stetson PD et al. Assessing electronic note quality using the Physician Documentation Quality Instrument (PDQI-9). Appl Clin Inform. 2012;3(2):164–174. <a href="https://doi.org/10.4338/ACI-2011-11-RA-0070">doi:10.4338/ACI-2011-11-RA-0070</a></li>
-    <li id="r15">Talwalkar JS et al. Impact of an ambient AI scribe on medical student objective structured clinical examination notes: nonrandomized clinical trial. JMIR Med Educ. 2026;12:e88264. <a href="https://doi.org/10.2196/88264">doi:10.2196/88264</a></li>
-    <li id="r16">Thammasitboon S et al. The Assessment of Reasoning Tool (ART): structuring the conversation between teachers and learners. Diagnosis. 2018;5(4):197–203. <a href="https://doi.org/10.1515/dx-2018-0052">doi:10.1515/dx-2018-0052</a></li>
+    <li id="r4">Croxford E et al. Development and validation of the provider documentation summarization quality instrument for large language models. J Am Med Inform Assoc. 2025;32(6):1050–1060. <a href="https://doi.org/10.1093/jamia/ocaf068">doi:10.1093/jamia/ocaf068</a></li>
+    <li id="r5">Heudel PE et al. Artificial intelligence in medicine: a scoping review of the risk of deskilling and loss of expertise among physicians. ESMO Real World Data Digit Oncol. 2026;12:100693. <a href="https://doi.org/10.1016/j.esmorw.2026.100693">doi:10.1016/j.esmorw.2026.100693</a></li>
+    <li id="r6">Ke Y et al. AI-induced never-skilling in medical education. Nat Med. 2026;32(6):1997–2006. <a href="https://doi.org/10.1038/s41591-026-04438-y">doi:10.1038/s41591-026-04438-y</a></li>
+    <li id="r7">Khan M et al. Artificial intelligence in psychiatric graduate medical education. Acad Psychiatry. Published online July 28, 2026. <a href="https://doi.org/10.1007/s40596-026-02406-9">doi:10.1007/s40596-026-02406-9</a></li>
+    <li id="r8">McGaughey S et al. When the scribe does the reasoning: ambient artificial intelligence, inference impersonation, and the development of trainees’ clinical judgment. Acad Med. Published online September 15, 2026. <a href="https://doi.org/10.1093/acamed/wvag287">doi:10.1093/acamed/wvag287</a></li>
+    <li id="r9">Rucker P, Miller M, Armstrong D. How Cigna saves millions by having its doctors reject claims without reading them. ProPublica and The Capitol Forum. March 25, 2023. <a href="https://www.propublica.org/article/cigna-pxdx-medical-health-insurance-rejection-claims">propublica.org</a></li>
+    <li id="r10">Qazi IA et al. Automation bias in large language model–assisted diagnostic reasoning among physicians trained in AI literacy — a randomized clinical trial. NEJM AI. 2026;3(5). <a href="https://doi.org/10.1056/AIoa2501001">doi:10.1056/AIoa2501001</a></li>
+    <li id="r11">Raka Y, Van Deusen R, Wiberg H. From authoring to editing: a competency framework for trainee use of ambient AI clinical documentation. npj Digit Med. 2026;9:785. <a href="https://doi.org/10.1038/s41746-026-03351-5">doi:10.1038/s41746-026-03351-5</a></li>
+    <li id="r12">Roth AS, Ayers NB. AI scribe functions in psychiatric practice: clinical oversight, consent, and regulation. Lancet Psychiatry. 2026;13(9):804. <a href="https://doi.org/10.1016/S2215-0366(26)00201-4">doi:10.1016/S2215-0366(26)00201-4</a></li>
+    <li id="r13">Stetson PD et al. Assessing electronic note quality using the Physician Documentation Quality Instrument (PDQI-9). Appl Clin Inform. 2012;3(2):164–174. <a href="https://doi.org/10.4338/ACI-2011-11-RA-0070">doi:10.4338/ACI-2011-11-RA-0070</a></li>
+    <li id="r14">Talwalkar JS et al. Impact of an ambient AI scribe on medical student objective structured clinical examination notes: nonrandomized clinical trial. JMIR Med Educ. 2026;12:e88264. <a href="https://doi.org/10.2196/88264">doi:10.2196/88264</a></li>
+    <li id="r15">Thammasitboon S et al. The Assessment of Reasoning Tool (ART): structuring the conversation between teachers and learners. Diagnosis. 2018;5(4):197–203. <a href="https://doi.org/10.1515/dx-2018-0052">doi:10.1515/dx-2018-0052</a></li>
   </ol>
   <p class="small muted">Die Ansichten sind meine eigenen und geben nicht die Position meines Arbeitgebers wieder.</p>
 </section>
@@ -588,45 +582,6 @@ section[id]{scroll-margin-top:24px}
     });
   }
 
-  /* PDSQI-8 self-check */
-  var C = [
-    ['Korrekt','Stimmt der Inhalt?','Mehrere schwere Fehler mit offensichtlicher Verzerrung oder Erfindung','Eine Aussage wurde gemacht, steht aber im falschen Kontext, etwa eine zu spezifische Diagnose','Jede Aussage lässt sich auf die Konsultation zurückführen'],
-    ['Vollständig','Nichts Relevantes ausgelassen?','Mehr als eine relevante Auslassung','Genau eine relevante Auslassung','Keine relevanten oder möglicherweise relevanten Auslassungen'],
-    ['Nützlich','Nützlich für die nächste Fachperson?','Keine Aussage ist für die nächste Fachperson relevant','Relevant, aber zu ausführlich oder zu knapp','Nur relevante Aussagen im richtigen Detaillierungsgrad'],
-    ['Gegliedert','Logisch aufgebaut?','Keine logische Reihenfolge oder Gruppierung','Folgt dem Gesprächsverlauf, ohne eigene Struktur','Durchgehend chronologisch oder problemorientiert'],
-    ['Verständlich','Klar und eindeutig?','Durchgehend zu komplex, uneinheitlich, ungewohnte Begriffe','Gesprochene Sprache unverändert übernommen','Durchgehend klare, vertraute Sprache, gut gebaut'],
-    ['Prägnant','Frei von Redundanz?','Durchgehend wortreich und redundant','Eine Aussage inhaltlich redundant oder mehrere redundante Formulierungen','Jede Aussage in so wenigen Worten wie möglich'],
-    ['Synthetisiert','Treffend verdichtet?','Falsche Schlüsse oder Gruppierungen','Aussagen unverbunden gelassen, wo ein Schluss möglich war','Integrierte klinische Synthese, nach Relevanz priorisiert']
-  ];
-  var host = document.getElementById('crits');
-  var html = '';
-  C.forEach(function(c,k){
-    html += '<div class="crit"><div class="name"><b>'+(k+1)+' · '+c[0]+'</b><span>'+c[1]+'</span></div>'+
-      '<div class="anchors"><p class="anchor" data-v="1"><em>1 · gar nicht</em>'+c[2]+'</p><p class="anchor" data-v="3"><em>3</em>'+c[3]+'</p><p class="anchor" data-v="5"><em>5 · voll</em>'+c[4]+'</p></div>'+
-      '<div class="picker" role="radiogroup" aria-label="Bewertung für '+c[0]+'">';
-    for (var v=1; v<=5; v++) html += '<label><input type="radio" name="q'+k+'" id="q'+k+'v'+v+'" value="'+v+'"><span>'+v+'</span></label>';
-    html += '<span class="hint" id="h'+k+'"></span></div></div>';
-  });
-  html += '<div class="crit"><div class="name"><b>8 · Stigmatisierende Sprache</b><span>Ja oder nein</span></div>'+
-    '<div class="anchors" style="grid-template-columns:minmax(0,1fr)"><p class="anchor"><em>Achten auf</em>«behauptet», «angeblich» · «verweigert» statt «verträgt nicht» · «Alkoholiker» statt «Person mit einer Alkoholkonsumstörung» · «Missbrauch»</p></div>'+
-    '<div class="picker" role="radiogroup" aria-label="Stigmatisierende Sprache vorhanden"><label><input type="radio" name="q7" id="q7y" value="yes"><span>Ja</span></label><label><input type="radio" name="q7" id="q7n" value="no"><span>Nein</span></label></div></div>';
-  host.innerHTML = html;
-  var sumEl = document.getElementById('sum'), flag = document.getElementById('flag');
-  function update(){
-    var sum = 0;
-    C.forEach(function(c,k){
-      var sel = host.querySelector('input[name="q'+k+'"]:checked');
-      var v = sel ? +sel.value : 0; sum += v;
-      var row = host.querySelectorAll('.crit')[k];
-      row.querySelectorAll('.anchor').forEach(function(a){ a.classList.toggle('hit', v && +a.getAttribute('data-v') === v); });
-      document.getElementById('h'+k).textContent = v===2 ? 'zwischen 1 und 3' : v===4 ? 'zwischen 3 und 5' : '';
-    });
-    sumEl.textContent = sum;
-    var s = host.querySelector('input[name="q7"]:checked');
-    flag.textContent = 'Stigmatisierende Sprache: ' + (s ? (s.value==='yes' ? 'vorhanden, vor der Unterschrift überarbeiten' : 'keine gefunden') : 'nicht bewertet');
-  }
-  host.addEventListener('change', update);
-  document.getElementById('reset').addEventListener('click', function(){ host.querySelectorAll('input').forEach(function(x){ x.checked = false; }); update(); });
 })();
 </script>
 </body>
