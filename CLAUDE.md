@@ -37,6 +37,8 @@ courses.html                Swiss Psychiatry Entry Roadmap (vorerst VERSTECKT: a
 contact.html                Kontakt
 impressum.html, datenschutz.html   Rechtliches (Deutsch)
 404.html                    Fehlerseite (nutzt absolute Links "/", weil sie unter jeder URL erscheint)
+forschung/index.html        Umleitung der alten Wix-Adresse /forschung → /de/research.html (11.11.2026).
+                            Weitere alte Adressen genauso anlegen: Ordner mit index.html (meta refresh + noindex + canonical)
 articles/index.html         Artikelübersicht
 articles/<slug>.html        Einzelne Artikel. Sonderfall: `ai-scribes-clinical-workflow.html` hat ein eigenes, interaktives Layout
                             (eigenes Stylesheet im <head>, auf Website-Farben/-Schriften umgestellt; Script für Workflow-Animation; PDSQI-8 als statische Bewertungsanleitung)
