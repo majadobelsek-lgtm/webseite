@@ -97,7 +97,8 @@ Maja schickt Titel, Text (oft als Word/PDF/Docs-Artifact oder eingefügt) und gg
 6. `articles/index.html`: Featured-Block oben auf den neuen Artikel umstellen (immer der neueste) und einen
    neuen `<li>` zuoberst in „All articles" einfügen. Falls der Artikel unter „In preparation" stand, dort entfernen.
 7. Optional auf der Startseite verlinken, falls Maja das möchte.
-8. Prüfen (Desktop + Mobil), Vorschau zeigen, nach OK pushen.
+8. `sitemap.xml`: beide Sprachfassungen (`articles/<slug>.html`, `de/articles/<slug>.html`) mit aktuellem `<lastmod>` eintragen.
+9. Prüfen (Desktop + Mobil), Vorschau zeigen, nach OK pushen.
 
 Mögliche Themen-Filter (Chips oben auf der Artikelseite) sind derzeit nur optisch.
 
@@ -120,6 +121,8 @@ Keine Fotos anderer Personen ohne Majas ausdrückliche Bestätigung, dass sie di
 - Kursseite seit 8.11.2026 versteckt (Navigation, Footer, Startseiten-Band, Kontaktseite auskommentiert, Marker `COURSES HIDDEN`). Maja macht sie später fertig; Plan: Schaufenster hier, Kauf/Kurszugang über Wix (z. B. kurse.majadobelsek.com).
 - [x] Deutsche Version (9.11.2026), siehe Abschnitt Zweisprachigkeit.
 - [x] `noindex` entfernt (9.11.2026), ausser auf der versteckten `courses.html` (beim Freischalten der Kursseite dort auch entfernen)
+- [x] `sitemap.xml` und `robots.txt` angelegt (17.11.2026), für Google Search Console. Neue öffentliche Seiten dort eintragen;
+      versteckte/`noindex`-Seiten (Kursseite, Umleitungen, 404) nicht aufnehmen.
 - [x] Eigene Domain majadobelsek.com live (9.11.2026): Domain bei Wix gekauft, DNS bei Wix (A-Records GitHub Pages, CNAME www → majadobelsek-lgtm.github.io), Custom Domain in GitHub Pages eingetragen. Wix-Abo erst kündigen, wenn alles stabil läuft; Domain-Verlängerung bei Wix behalten.
 
 ## Was Claude nicht tun soll
